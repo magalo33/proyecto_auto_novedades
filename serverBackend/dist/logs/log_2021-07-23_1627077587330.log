@@ -1,0 +1,13 @@
+{"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"2ce96efb-0a53-4747-9d3c-0104d94c34d8[METODO->validateMessage][BODY]{\"data\":{\"idrol\":\"1\",\"cedula\":\"88230510\",\"password\":\"123456789\"},\"expDate\":\"2021-07-23 15:34:14\"}","level":"info"}
+{"message":"2ce96efb-0a53-4747-9d3c-0104d94c34d8[METODO->updatePersona][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\", \"activo\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"idpersona\" = '1';","level":"info"}
+{"message":"2ce96efb-0a53-4747-9d3c-0104d94c34d8[METODO->updatePersona][OK]->consulta exitosa","level":"info"}
+{"message":"f9228a89-9627-410b-932e-c00e82b41be4[METODO->validateMessage][BODY]{\"data\":{\"idrol\":\"1\",\"cedula\":\"88230510\",\"password\":\"123456789\"},\"expDate\":\"2021-07-23 15:34:14\"}","level":"info"}
+{"message":"f9228a89-9627-410b-932e-c00e82b41be4[METODO->updatePersona][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\", \"activo\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"idpersona\" = '2';","level":"info"}
+{"message":"f9228a89-9627-410b-932e-c00e82b41be4[METODO->updatePersona][OK]->consulta exitosa","level":"info"}
+{"message":"4fb99d31-4000-45b9-bc57-8a8d1458d720[METODO->validateMessage][BODY]{\"data\":{\"idrol\":\"1\",\"cedula\":\"88230510\",\"password\":\"123456789\"},\"expDate\":\"2021-07-23 15:34:14\"}","level":"info"}
+{"message":"4fb99d31-4000-45b9-bc57-8a8d1458d720[METODO->updatePersona][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\", \"activo\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"idpersona\" = '3';","level":"info"}
+{"message":"4fb99d31-4000-45b9-bc57-8a8d1458d720[METODO->updatePersona][OK]->consulta exitosa","level":"info"}
+{"message":"cf392222-b5df-45ec-941a-f9daab31d2d0[METODO->validateMessage][BODY]{\"data\":{\"idpersona\":\"1\",\"activo\":true},\"expDate\":\"2021-07-23 17:17:04\"}","level":"info"}
+{"message":"cf392222-b5df-45ec-941a-f9daab31d2d0[METODO->getPersona][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\", \"activo\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"idpersona\" = 'actualizarestado';","level":"info"}
+{"message":"cf392222-b5df-45ec-941a-f9daab31d2d0[METODO->getPersona][ERROR]->Se presentó un error al tratar de obtener la informacion de la base de datos","level":"error"}

@@ -1,0 +1,13 @@
+{"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"f37fc28b-a98b-425b-88a4-2edb2e40ff25[METODO->validateMessage][BODY]{\"data\":{\"idrol\":\"1\",\"cedula\":\"88230510\",\"password\":\"123456789\"},\"expDate\":\"2021-07-23 15:34:14\"}","level":"info"}
+{"message":"f37fc28b-a98b-425b-88a4-2edb2e40ff25[METODO->getPersonaPorEmail][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"email\" ILIKE '%1%';","level":"info"}
+{"message":"f37fc28b-a98b-425b-88a4-2edb2e40ff25[METODO->getPersonaPorEmail][OK]->consulta exitosa","level":"info"}
+{"message":"cc83def7-34c5-4688-a446-cddcbdd5a22d[METODO->validateMessage][BODY]{\"data\":{\"idrol\":\"1\",\"cedula\":\"88230510\",\"password\":\"123456789\"},\"expDate\":\"2021-07-23 15:34:14\"}","level":"info"}
+{"message":"cc83def7-34c5-4688-a446-cddcbdd5a22d[METODO->getPersonaPorEmail][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"email\" ILIKE '%2%';","level":"info"}
+{"message":"cc83def7-34c5-4688-a446-cddcbdd5a22d[METODO->getPersonaPorEmail][OK]->consulta exitosa","level":"info"}
+{"message":"84ac50c1-5aa3-4475-aae2-0d2b91c50a55[METODO->validateMessage][BODY]{\"data\":{\"idrol\":\"1\",\"cedula\":\"88230510\",\"password\":\"123456789\"},\"expDate\":\"2021-07-23 15:34:14\"}","level":"info"}
+{"message":"84ac50c1-5aa3-4475-aae2-0d2b91c50a55[METODO->getPersonaPorEmail][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"email\" ILIKE '%3%';","level":"info"}
+{"message":"84ac50c1-5aa3-4475-aae2-0d2b91c50a55[METODO->getPersonaPorEmail][OK]->consulta exitosa","level":"info"}
+{"message":"f0f87256-76b4-4f97-87ab-d6b8caeeb03a[METODO->validateMessage][BODY]{\"data\":{\"idrol\":\"1\",\"cedula\":\"88230510\",\"password\":\"123456789\"},\"expDate\":\"2021-07-23 15:34:14\"}","level":"info"}
+{"message":"f0f87256-76b4-4f97-87ab-d6b8caeeb03a[METODO->getPersonaPorEmail][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"email\" ILIKE '%mig%';","level":"info"}
+{"message":"f0f87256-76b4-4f97-87ab-d6b8caeeb03a[METODO->getPersonaPorEmail][OK]->consulta exitosa","level":"info"}

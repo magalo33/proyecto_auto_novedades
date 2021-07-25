@@ -1,0 +1,5 @@
+{"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"570684bf-3aae-4ac7-bf95-be7d1c8f299d[METODO->validateMessage][BODY]{\"data\":{\"persona\":{\"idpersona\":6,\"cedula\":\"88230515\",\"nombre\":\"elquin... usuario\",\"direccion\":\"direccion del sexto usuario\",\"telefono\":\"3222282572\",\"email\":\"elmail@delsexto.com\",\"clave\":\"clavedelsexto\",\"activo\":false}},\"expDate\":\"2021-07-24 15:47:40\"}","level":"info"}
+{"message":"570684bf-3aae-4ac7-bf95-be7d1c8f299d[METODO->actualizarEstadoPersona][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\", \"activo\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"cedula\" = '88230515';","level":"info"}
+{"message":"570684bf-3aae-4ac7-bf95-be7d1c8f299d[METODO->actualizarEstadoPersona][ERROR]->Ya existe una persona con esta cédula","level":"error"}
+{"message":"570684bf-3aae-4ac7-bf95-be7d1c8f299d[METODO->actualizarEstadoPersona][ERROR]->No se realizo la actualización. Verifique el parametro de control","level":"error"}

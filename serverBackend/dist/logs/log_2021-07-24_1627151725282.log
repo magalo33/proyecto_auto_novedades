@@ -1,0 +1,10 @@
+{"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"48407940-4a74-494e-a841-174ce1411137[METODO->validateMessage][BODY]{\"data\":{\"idpersona\":1,\"activo\":false},\"expDate\":\"2021-07-24 13:06:20\"}","level":"info"}
+{"message":"48407940-4a74-494e-a841-174ce1411137[METODO->actualizarEstadoPersona][SQL]Executing (default): UPDATE \"autos\".\"personas\" SET \"activo\"=$1 WHERE \"idpersona\" = $2","level":"info"}
+{"message":"48407940-4a74-494e-a841-174ce1411137[METODO->actualizarEstadoPersona][OK]->actualizacion exitosa","level":"info"}
+{"message":"658e565a-45c2-48d7-ad34-e79b6b0f4783[METODO->validateMessage][BODY]{\"data\":{\"idpersona\":1,\"activo\":false},\"expDate\":\"2021-07-24 13:06:20\"}","level":"info"}
+{"message":"658e565a-45c2-48d7-ad34-e79b6b0f4783[METODO->actualizarEstadoPersona][SQL]Executing (default): UPDATE \"autos\".\"personas\" SET \"activo\"=$1 WHERE \"idpersona\" = $2","level":"info"}
+{"message":"658e565a-45c2-48d7-ad34-e79b6b0f4783[METODO->actualizarEstadoPersona][OK]->actualizacion exitosa","level":"info"}
+{"message":"03b91437-dd2c-450b-9ebe-ba2b1dc147f5[METODO->validateMessage][BODY]{\"data\":{\"idpersona\":1,\"activo\":false},\"expDate\":\"2021-07-24 13:06:20\"}","level":"info"}
+{"message":"03b91437-dd2c-450b-9ebe-ba2b1dc147f5[METODO->actualizarEstadoPersona][SQL]Executing (default): UPDATE \"autos\".\"personas\" SET \"activo\"=$1 WHERE \"idpersona\" = $2","level":"info"}
+{"message":"03b91437-dd2c-450b-9ebe-ba2b1dc147f5[METODO->actualizarEstadoPersona][OK]->actualizacion exitosa","level":"info"}

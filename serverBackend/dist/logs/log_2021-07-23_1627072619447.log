@@ -1,0 +1,13 @@
+{"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"e03eaa72-4ce4-4aa9-bda3-a26917a618d1[METODO->getPersona][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"cedula\" = '88230513ss';","level":"info"}
+{"message":"e03eaa72-4ce4-4aa9-bda3-a26917a618d1[METODO->getPersona][OK]->consulta exitosa","level":"info"}
+{"message":"759cbad3-7bcf-45b9-acec-c360c88eb43f[METODO->getPersona][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"cedula\" = '88230513ss';","level":"info"}
+{"message":"759cbad3-7bcf-45b9-acec-c360c88eb43f[METODO->getPersona][OK]->consulta exitosa","level":"info"}
+{"message":"d9114f08-5bd2-43db-b3ee-e6a9a472a344[METODO->getPersona][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"cedula\" = '88230513ss';","level":"info"}
+{"message":"d9114f08-5bd2-43db-b3ee-e6a9a472a344[METODO->getPersona][OK]->consulta exitosa","level":"info"}
+{"message":"13f88dde-38a5-489b-a773-6220f6d1a46c[METODO->getPersona][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"cedula\" = '88230513ss';","level":"info"}
+{"message":"13f88dde-38a5-489b-a773-6220f6d1a46c[METODO->getPersona][OK]->consulta exitosa","level":"info"}
+{"message":"0e6e6842-d2e7-434e-a6b1-f24592020d75[METODO->getPersona][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"cedula\" = '88230513ss';","level":"info"}
+{"message":"0e6e6842-d2e7-434e-a6b1-f24592020d75[METODO->getPersona][OK]->consulta exitosa","level":"info"}
+{"message":"8b4822b7-5495-4091-9e5c-606aef11e743[METODO->getPersona][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"cedula\" = '88230513ss';","level":"info"}
+{"message":"8b4822b7-5495-4091-9e5c-606aef11e743[METODO->getPersona][OK]->consulta exitosa","level":"info"}

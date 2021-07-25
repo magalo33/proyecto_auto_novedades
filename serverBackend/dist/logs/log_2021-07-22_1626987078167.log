@@ -1,0 +1,5 @@
+{"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"f53fea89-eb84-4b3f-afcc-0c251b0a8a9d[METODO->getCiudades][ERROR]->No se recibio el token de validación y/o el origen de la aplicación.","level":"error"}
+{"message":"8a850d96-7448-44a7-8ff1-f9851fa8f7c0[METODO->getCiudades][ERROR]->No se recibio el token de validación y/o el origen de la aplicación.","level":"error"}
+{"message":"451e06b2-3589-4c67-b3fc-bc23454374c6[METODO->getCiudades][SQL]Executing (default): SELECT \"idciudad\", \"iddepartamento\", \"descripcion\" FROM \"autos\".\"ciudades\" AS \"ciudades\" ORDER BY \"ciudades\".\"idciudad\";","level":"info"}
+{"message":"451e06b2-3589-4c67-b3fc-bc23454374c6[METODO->getCiudades][OK]->consulta exitosa","level":"info"}

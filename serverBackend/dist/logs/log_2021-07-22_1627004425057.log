@@ -1,0 +1,2 @@
+{"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"bd83c1a8-3061-4451-846c-ea9cb5d7ab6c[ERROR]->Se presentó un error al tratar de obtener la informacion de la base de datos \nSequelizeEagerLoadingError: entidades is not associated to contactos!","level":"error"}

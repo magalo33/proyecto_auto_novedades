@@ -1,0 +1,6 @@
+{"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"272d3fc3-3770-4b77-96ea-0234378ef0a0[METODO->validateMessage][BODY]{\"data\":{\"IDDEPARTAMENTO\":\"123\"}}","level":"info"}
+{"message":"272d3fc3-3770-4b77-96ea-0234378ef0a0[METODO->validateMessage][REQUEST]{\"data\":{\"IDDEPARTAMENTO\":\"123\"},\"expDate\":\"2021-07-22 18:42:38\"}","level":"info"}
+{"message":"272d3fc3-3770-4b77-96ea-0234378ef0a0[METODO->getRoles][ERROR]->El body no es valido","level":"error"}
+{"message":"9e522c61-13a7-468d-881d-f3e12c65be38[METODO->getRoles][SQL]Executing (default): SELECT \"idrol\", \"descripcion\" FROM \"autos\".\"roles\" AS \"roles\" ORDER BY \"roles\".\"descripcion\";","level":"info"}
+{"message":"9e522c61-13a7-468d-881d-f3e12c65be38[METODO->getRoles][OK]->consulta exitosa","level":"info"}

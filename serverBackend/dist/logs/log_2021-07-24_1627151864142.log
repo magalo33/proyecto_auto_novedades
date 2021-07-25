@@ -1,0 +1,13 @@
+{"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"ac1a0a77-b7ba-477b-8510-db2e8400a59e[METODO->validateMessage][BODY]{\"data\":{\"idpersona\":1,\"activo\":false},\"expDate\":\"2021-07-24 13:06:20\"}","level":"info"}
+{"message":"ac1a0a77-b7ba-477b-8510-db2e8400a59e[METODO->actualizarEstadoPersona][SQL]Executing (default): UPDATE \"autos\".\"personas\" SET \"activo\"=$1 WHERE \"idpersona\" = $2","level":"info"}
+{"message":"ac1a0a77-b7ba-477b-8510-db2e8400a59e[METODO->actualizarEstadoPersona][OK]->actualizacion exitosa","level":"info"}
+{"message":"baf90ca1-e01b-4950-bde6-403f7a57b39c[METODO->validateMessage][BODY]{\"data\":{\"idpersona\":1,\"activo\":false},\"expDate\":\"2021-07-24 13:06:20\"}","level":"info"}
+{"message":"baf90ca1-e01b-4950-bde6-403f7a57b39c[METODO->actualizarEstadoPersona][SQL]Executing (default): UPDATE \"autos\".\"personas\" SET \"activo\"=$1 WHERE \"idpersona\" = $2","level":"info"}
+{"message":"baf90ca1-e01b-4950-bde6-403f7a57b39c[METODO->actualizarEstadoPersona][OK]->actualizacion exitosa","level":"info"}
+{"message":"3c068aaa-7df1-4707-b7c5-f0ff1c409471[METODO->validateMessage][BODY]{\"data\":{\"idpersona\":1,\"activo\":false},\"expDate\":\"2021-07-24 13:06:20\"}","level":"info"}
+{"message":"3c068aaa-7df1-4707-b7c5-f0ff1c409471[METODO->actualizarEstadoPersona][SQL]Executing (default): UPDATE \"autos\".\"personas\" SET \"activo\"=$1 WHERE \"idpersona\" = $2","level":"info"}
+{"message":"3c068aaa-7df1-4707-b7c5-f0ff1c409471[METODO->actualizarEstadoPersona][OK]->actualizacion exitosa","level":"info"}
+{"message":"4161ee7b-8eb3-4e29-ac5e-ae12d8f11638[METODO->validateMessage][BODY]{\"data\":{\"idpersona\":1,\"activo\":false},\"expDate\":\"2021-07-24 13:06:20\"}","level":"info"}
+{"message":"4161ee7b-8eb3-4e29-ac5e-ae12d8f11638[METODO->actualizarEstadoPersona][SQL]Executing (default): UPDATE \"autos\".\"personas\" SET \"activo\"=$1 WHERE \"idpersona\" = $2","level":"info"}
+{"message":"4161ee7b-8eb3-4e29-ac5e-ae12d8f11638[METODO->actualizarEstadoPersona][OK]->actualizacion exitosa","level":"info"}

@@ -1,0 +1,2 @@
+{"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"297f2bb1-702e-43d2-b4bf-ab348a8412ff[METODO->getCiudades][ERROR]->No se recibio el token de validación y/o el origen de la aplicación.","level":"error"}

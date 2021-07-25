@@ -1,0 +1,7 @@
+{"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"1ffa1e66-258e-40d5-91ae-b450ca1b50ce[METODO->validateMessage][BODY]{\"data\":{\"idpersona\":1,\"activo\":true},\"expDate\":\"2021-07-24 12:42:29\"}","level":"info"}
+{"message":"1ffa1e66-258e-40d5-91ae-b450ca1b50ce[METODO->actualizarEstadoPersona][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\", \"activo\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"idpersona\" = 1;","level":"info"}
+{"message":"1ffa1e66-258e-40d5-91ae-b450ca1b50ce[METODO->actualizarEstadoPersona][OK]->consulta exitosa","level":"info"}
+{"message":"bfa40768-260f-443e-b39e-2805b7ef0fd7[METODO->validateMessage][BODY]{\"data\":{\"idpersona\":1,\"activo\":true},\"expDate\":\"2021-07-24 12:42:29\"}","level":"info"}
+{"message":"bfa40768-260f-443e-b39e-2805b7ef0fd7[METODO->actualizarEstadoPersona][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\", \"activo\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"idpersona\" = 1;","level":"info"}
+{"message":"bfa40768-260f-443e-b39e-2805b7ef0fd7[METODO->actualizarEstadoPersona][OK]->consulta exitosa","level":"info"}

@@ -1,0 +1,43 @@
+.tabla-centrada{
+    display: table;
+    height:100%;
+ }
+
+
+ .celda-centrada {
+    display: table-cell;
+    vertical-align: middle;;
+ }
+
+ .w-80pct{
+     width: 80%;
+ }
+
+
+ .oculto{
+     height: 20px;
+     visibility: hidden;
+ }
+
+ .text-align-center {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+.campos{
+    font-size: 1.5em;;
+}
+
+
+.adjust-right{
+    float: right;
+}
+
+
+
+ @media (max-width: 500px) {
+    .oculto{
+        height: 20px;
+        visibility: visible;
+    }
+}

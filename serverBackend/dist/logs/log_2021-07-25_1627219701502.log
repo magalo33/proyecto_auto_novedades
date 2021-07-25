@@ -1,0 +1,4 @@
+{"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"ccb0739f-3a6c-4fe1-8c7f-3e9381b1ad5c[METODO->validateMessage][BODY]{\"data\":{\"token\":\"443d11d1-a031-45fe-b4c1-8ec12c168a7d\"},\"expDate\":\"2021-07-25 08:29:01\"}","level":"info"}
+{"message":"ccb0739f-3a6c-4fe1-8c7f-3e9381b1ad5c[METODO->getRoles][SQL]Executing (default): SELECT \"idrol\", \"descripcion\" FROM \"autos\".\"roles\" AS \"roles\" ORDER BY \"roles\".\"descripcion\";","level":"info"}
+{"message":"ccb0739f-3a6c-4fe1-8c7f-3e9381b1ad5c[METODO->getRoles][OK]->consulta exitosa","level":"info"}

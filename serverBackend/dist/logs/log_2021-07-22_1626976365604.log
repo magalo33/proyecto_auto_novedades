@@ -1,0 +1,11 @@
+{"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"95d1d959-cf4a-4f0d-a3b6-e53e9b26c2e4[METODO->getDepartamentos][ERROR]->No se recibio el token de validación y/o el origen de la aplicación.","level":"error"}
+{"message":"b93e3a5d-918a-4843-bcbb-54ff46b7a5d3[METODO->validateMessage][BODY]{\"error\":0,\"body\":{\"data\":{\"IDDEPARTAMENTO\":\"123\"},\"expDate\":\"2021-07-22 12:52:56\"}}","level":"info"}
+{"message":"b93e3a5d-918a-4843-bcbb-54ff46b7a5d3[METODO->validateMessage][REQUEST]{\"data\":{\"IDDEPARTAMENTO\":\"123\"},\"expDate\":\"2021-07-22 12:52:56\"}","level":"info"}
+{"message":"b93e3a5d-918a-4843-bcbb-54ff46b7a5d3[METODO->getDepartamentos][ERROR]->El body no es valido","level":"error"}
+{"message":"4a427583-3cce-46e3-b7d4-f8c8ba391841[METODO->getDepartamentos][ERROR]->No se ingresó la data y/o el email","level":"error"}
+{"message":"2ea82202-9a1b-4182-ac97-d1fc57f75f7b[METODO->getDepartamentos][ERROR]->No se ingresó la data y/o el email","level":"error"}
+{"message":"6599c85b-e5af-4c1c-b3c8-5e9527eeeb3c[METODO->getDepartamentos][SQL]Executing (default): SELECT \"iddepartamento\", \"descripcion\" FROM \"autos\".\"departamentos\" AS \"departamento\" ORDER BY \"departamento\".\"iddepartamento\";","level":"info"}
+{"message":"6599c85b-e5af-4c1c-b3c8-5e9527eeeb3c[METODO->getDepartamentos][OK]->consulta exitosa","level":"info"}
+{"message":"f0e460bc-5160-4aa9-a21d-c67d0452019d[METODO->getDepartamentos][ERROR]->Token Expirado","level":"error"}
+{"message":"3daddfdd-02f9-4538-8543-5cccabf4d4fd[METODO->getDepartamentos][ERROR]->Token Expirado","level":"error"}

@@ -1,0 +1,15 @@
+{"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"2cf04010-0279-4120-9999-595f17f9673c[METODO->getCiudad][SQL]Executing (default): SELECT \"idciudad\", \"iddepartamento\", \"descripcion\" FROM \"autos\".\"ciudades\" AS \"ciudades\" WHERE \"ciudades\".\"idciudad\" = '12500';","level":"info"}
+{"message":"2cf04010-0279-4120-9999-595f17f9673c[METODO->getCiudad][ERROR]->No se encontro ciudad relacionada al parametro de busqueda","level":"error"}
+{"message":"6b8c6731-32ed-4c3f-bace-603008a76ac7[METODO->getCiudad][SQL]Executing (default): SELECT \"idciudad\", \"iddepartamento\", \"descripcion\" FROM \"autos\".\"ciudades\" AS \"ciudades\" WHERE \"ciudades\".\"idciudad\" = '12500';","level":"info"}
+{"message":"6b8c6731-32ed-4c3f-bace-603008a76ac7[METODO->getCiudad][ERROR]->No se encontro ciudad relacionada al parametro de busqueda","level":"error"}
+{"message":"016a8f07-8e21-4f64-a2c2-7d5e31e118d8[METODO->getCiudad][SQL]Executing (default): SELECT \"idciudad\", \"iddepartamento\", \"descripcion\" FROM \"autos\".\"ciudades\" AS \"ciudades\" WHERE \"ciudades\".\"idciudad\" = '12500';","level":"info"}
+{"message":"016a8f07-8e21-4f64-a2c2-7d5e31e118d8[METODO->getCiudad][ERROR]->No se encontro ciudad relacionada al parametro de busqueda","level":"error"}
+{"message":"e4d1d1a9-aafe-446e-97a0-b563dd1565a1[METODO->getCiudad][SQL]Executing (default): SELECT \"idciudad\", \"iddepartamento\", \"descripcion\" FROM \"autos\".\"ciudades\" AS \"ciudades\" WHERE \"ciudades\".\"idciudad\" = '12500';","level":"info"}
+{"message":"e4d1d1a9-aafe-446e-97a0-b563dd1565a1[METODO->getCiudad][ERROR]->No se encontro ciudad relacionada al parametro de busqueda","level":"error"}
+{"message":"5d36cfac-8f5b-464c-8110-505ee0ad0c53[METODO->getCiudad][SQL]Executing (default): SELECT \"idciudad\", \"iddepartamento\", \"descripcion\" FROM \"autos\".\"ciudades\" AS \"ciudades\" WHERE \"ciudades\".\"idciudad\" = '12500';","level":"info"}
+{"message":"5d36cfac-8f5b-464c-8110-505ee0ad0c53[METODO->getCiudad][ERROR]->No se encontro ciudad relacionada al parametro de busqueda","level":"error"}
+{"message":"2e99a19c-7c8d-40ec-bc55-c3f37516f7d6[METODO->getCiudad][SQL]Executing (default): SELECT \"idciudad\", \"iddepartamento\", \"descripcion\" FROM \"autos\".\"ciudades\" AS \"ciudades\" WHERE \"ciudades\".\"idciudad\" = '12500';","level":"info"}
+{"message":"2e99a19c-7c8d-40ec-bc55-c3f37516f7d6[METODO->getCiudad][ERROR]->No se encontro ciudad relacionada al parametro de busqueda","level":"error"}
+{"message":"6e6a3ffc-bdeb-4dfb-859c-033d5493cb74[METODO->getCiudad][SQL]Executing (default): SELECT \"idciudad\", \"iddepartamento\", \"descripcion\" FROM \"autos\".\"ciudades\" AS \"ciudades\" WHERE \"ciudades\".\"idciudad\" = '328';","level":"info"}
+{"message":"6e6a3ffc-bdeb-4dfb-859c-033d5493cb74[METODO->getCiudad][OK]->consulta exitosa","level":"info"}

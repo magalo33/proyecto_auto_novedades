@@ -1,0 +1,36 @@
+<div calss="container-fluid">
+
+    <div classs="container col-12">
+
+
+        <div *ngFor="let entidad of entidades" class="d-flex">
+
+            <div class="col-1"><h6>ID</h6></div>
+            <div class="col-1"><h6>NIT</h6></div>
+            <div class="col-2"><h6>NOMBRE</h6></div>
+            <div class="col-2"><h6>DIRECCIÓN</h6></div>
+            <div class="col-1"><h6>TELEFONO</h6></div>
+            <div class="col-2"><h6>EMAIL</h6></div>
+            <div class="col-1"><h6>CRE. EN</h6></div>
+            <div class="col-1"><h6>ACT. EN</h6></div>
+            <div class="col-1"><h6>ESTADO</h6></div>
+            
+        </div>
+
+        <div *ngFor="let entidad of entidades" class="d-flex">
+
+            <div>{{entidad.identidad}}</div>
+            <div>{{entidad.nit}}</div>
+            <div>{{entidad.nombre}}</div>
+            <div>{{entidad.direccion}}</div>
+            <div>{{entidad.telefono}}</div>
+            <div>{{entidad.email}}</div>
+            <div>{{entidad.createdAt}}</div>
+            <div>{{entidad.updatedAt}}</div>
+            <div>{{entidad.activo}}</div>
+            
+        </div>
+
+    </div>
+
+</div>

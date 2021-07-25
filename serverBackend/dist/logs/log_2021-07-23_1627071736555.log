@@ -1,0 +1,15 @@
+{"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"5c6e4d6c-af88-4a7d-b123-af1218393d95[METODO->getPersonas][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\" FROM \"autos\".\"personas\" AS \"personas\" ORDER BY \"personas\".\"nombre\";","level":"info"}
+{"message":"5c6e4d6c-af88-4a7d-b123-af1218393d95[METODO->getPersonas][OK]->consulta exitosa","level":"info"}
+{"message":"66cf770c-a86e-4a21-8e36-84e74a36b2f3[METODO->getPersona][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"idpersona\" = '1';","level":"info"}
+{"message":"66cf770c-a86e-4a21-8e36-84e74a36b2f3[METODO->getPersona][OK]->consulta exitosa","level":"info"}
+{"message":"0daf0160-dfe1-49ff-b3c4-08c356e3651d[METODO->getPersona][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"idpersona\" = '2';","level":"info"}
+{"message":"0daf0160-dfe1-49ff-b3c4-08c356e3651d[METODO->getPersona][OK]->consulta exitosa","level":"info"}
+{"message":"852454f2-f922-4b54-abe7-1652dffbe701[METODO->getPersona][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"idpersona\" = '23';","level":"info"}
+{"message":"852454f2-f922-4b54-abe7-1652dffbe701[METODO->getPersona][OK]->consulta exitosa","level":"info"}
+{"message":"ac6f541f-0248-415e-8dd9-7b07a859b207[METODO->getPersona][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"idpersona\" = '3';","level":"info"}
+{"message":"ac6f541f-0248-415e-8dd9-7b07a859b207[METODO->getPersona][OK]->consulta exitosa","level":"info"}
+{"message":"713911fb-c619-4f9f-adac-f5fa46f9a9e4[METODO->getPersona][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"idpersona\" = '3';","level":"info"}
+{"message":"713911fb-c619-4f9f-adac-f5fa46f9a9e4[METODO->getPersona][OK]->consulta exitosa","level":"info"}
+{"message":"9f3bdb14-76a8-419d-9a47-4bb1db88480a[METODO->getPersona][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"idpersona\" = '30';","level":"info"}
+{"message":"9f3bdb14-76a8-419d-9a47-4bb1db88480a[METODO->getPersona][OK]->consulta exitosa","level":"info"}

@@ -1,0 +1,68 @@
+<section  class="background-general">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem;">
+            <div class="row g-0">
+              
+                <div class="col-md-6 col-lg-5 mx-auto d-block mx-md-n5 text-center">
+
+                    <div class="oculto"></div>
+                    <div class="tabla-centrada w-100">
+                        <div class=" celda-centrada ">
+                            <img class="mx-auto d-block w-80pct" src="assets/images/geoscan.png" alt="logo" >
+                        </div> 
+                    </div>                    
+
+               </div>
+              
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+             
+                <div class="card-body p-4 p-lg-5">
+ 
+                    <div class="w-100">
+                        <img src="assets/images/logo.jpg" class="mx-auto d-block">
+                        <div class="text-align-center">
+                            <h5 class="fw-normal" style="letter-spacing: 1px;">SELECCIONE EL ROL E INGRESE SUS CREDENCIALES</h5>
+                        </div>                        
+                    </div>
+                    <br/>
+                   
+                  <form>  
+                    <div class="form-outline mb-4">
+                        <select class="select arrow form-control my-0 mr-sm-2 campos" name="rol" id="rol"  [(ngModel)]="idrol"  (change)="changeRol()" required>
+                            <option selected value='0'>Selecciona tu Rol</option>
+                            <option *ngFor="let rol of roles" [value]="rol.idrol">{{rol.descripcion}}</option>
+                        </select>
+                        <label class="form-label" for="form2Example17">Rol</label>
+                    </div>
+ 
+                    <div class="form-outline mb-4">
+                      <input type="text" id="txtCedula" class="form-control form-control-lg campos" [(ngModel)]="cedula" [ngModelOptions]="{standalone: true}" disabled/>
+                      <label class="form-label" for="form2Example17">Cédula de ciudadania</label>
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                      <input type="password" id="txtPassword" class="form-control form-control-lg campos" [(ngModel)]="clave" [ngModelOptions]="{standalone: true}" disabled />
+                      <div class="d-flex justify-content-between">
+                        <span class="form-label float-left" for="txtPassword">Contraseña</span>
+                        <span><a href="#!" class="small text-muted adjust-right">¿Olvido su contraseña?</a></span>
+                      </div>
+                      
+                    </div>
+  
+                    <div class="pt-1 mb-4">
+                      <button class="btn btn-primary btn-lg btn-block w-100" type="button" (click)="enviarBtn()">INGRESAR</button>
+                    </div>
+  
+                    <a href="#!" class="small text-muted">Términos y condiciones</a>
+                  </form>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

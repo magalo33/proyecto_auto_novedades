@@ -1,0 +1,7 @@
+{"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"709b4f4f-6989-4c45-b5ad-29936ae3171d[METODO->validateMessage][BODY]{\"data\":{\"token\":\"2683144d-f898-4b2b-aa58-5cf80290521a\"},\"expDate\":\"2021-07-25 08:26:03\"}","level":"info"}
+{"message":"709b4f4f-6989-4c45-b5ad-29936ae3171d[METODO->getRoles][SQL]Executing (default): SELECT \"idrol\", \"descripcion\" FROM \"autos\".\"roles\" AS \"roles\" ORDER BY \"roles\".\"descripcion\";","level":"info"}
+{"message":"709b4f4f-6989-4c45-b5ad-29936ae3171d[METODO->getRoles][OK]->consulta exitosa","level":"info"}
+{"message":"9dfca614-4e88-4734-a848-d4391801fd5b[METODO->validateMessage][BODY]{}","level":"info"}
+{"message":"9dfca614-4e88-4734-a848-d4391801fd5b[METODO->validateMessage][REQUEST]{\"data\":{\"requestLogin\":{\"idrol\":\"2\",\"cedula\":\"88230510\",\"clave\":\"456\"}},\"expDate\":\"2021-07-25 08:26:17\"}","level":"info"}
+{"message":"9dfca614-4e88-4734-a848-d4391801fd5b[METODO->validarLogin][ERROR]->El body no es valido","level":"error"}

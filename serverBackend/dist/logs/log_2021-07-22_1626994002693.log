@@ -1,0 +1,5 @@
+{"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"6421b6d7-d638-43b9-87a7-994486018e3a[METODO->getCiudadPorDepartamento][SQL]Executing (default): SELECT \"idciudad\", \"iddepartamento\", \"descripcion\" FROM \"autos\".\"ciudades\" AS \"ciudades\" WHERE \"ciudades\".\"iddepartamento\" = '1';","level":"info"}
+{"message":"6421b6d7-d638-43b9-87a7-994486018e3a[METODO->getCiudadPorDepartamento][OK]->consulta exitosa","level":"info"}
+{"message":"f6c786a7-064f-4e7c-a98a-5c139d0e7dc9[METODO->getCiudadPorDepartamento][SQL]Executing (default): SELECT \"idciudad\", \"iddepartamento\", \"descripcion\" FROM \"autos\".\"ciudades\" AS \"ciudades\" WHERE \"ciudades\".\"iddepartamento\" = '3';","level":"info"}
+{"message":"f6c786a7-064f-4e7c-a98a-5c139d0e7dc9[METODO->getCiudadPorDepartamento][OK]->consulta exitosa","level":"info"}

@@ -1,0 +1,10 @@
+{"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"9dd13a11-1b41-4237-8d83-db557ad9d8d7[METODO->validateMessage][BODY]{\"data\":{\"persona\":{\"idpersona\":5,\"activo\":false}},\"expDate\":\"2021-07-24 15:26:06\"}","level":"info"}
+{"message":"9dd13a11-1b41-4237-8d83-db557ad9d8d7[METODO->actualizarEstadoPersona][SQL]Executing (default): UPDATE \"autos\".\"personas\" SET \"activo\"=$1 WHERE \"idpersona\" = $2","level":"info"}
+{"message":"9dd13a11-1b41-4237-8d83-db557ad9d8d7[METODO->actualizarEstadoPersona][OK]->actualizacion exitosa","level":"info"}
+{"message":"0484c2d0-b9d2-4c56-a94c-18cdc4054f89[METODO->validateMessage][BODY]{\"data\":{\"persona\":{\"idpersona\":5,\"activo\":false}},\"expDate\":\"2021-07-24 15:26:06\"}","level":"info"}
+{"message":"0484c2d0-b9d2-4c56-a94c-18cdc4054f89[METODO->actualizarEstadoPersona][SQL]Executing (default): UPDATE \"autos\".\"personas\" SET \"activo\"=$1 WHERE \"idpersona\" = $2","level":"info"}
+{"message":"0484c2d0-b9d2-4c56-a94c-18cdc4054f89[METODO->actualizarEstadoPersona][OK]->actualizacion exitosa","level":"info"}
+{"message":"f609ce6e-be18-4535-b620-f57c0f432702[METODO->validateMessage][BODY]{\"data\":{\"persona\":{\"idpersona\":5,\"activo\":false}},\"expDate\":\"2021-07-24 15:26:06\"}","level":"info"}
+{"message":"f609ce6e-be18-4535-b620-f57c0f432702[METODO->actualizarEstadoPersona][SQL]Executing (default): INSERT INTO \"autos\".\"personas\" (\"idpersona\",\"cedula\",\"nombre\",\"direccion\",\"telefono\",\"email\",\"clave\",\"activo\") VALUES ($1,$2,$3,$4,$5,$6,$7,$8) ON CONFLICT (\"idpersona\") DO UPDATE SET \"idpersona\"=EXCLUDED.\"idpersona\",\"cedula\"=EXCLUDED.\"cedula\",\"nombre\"=EXCLUDED.\"nombre\",\"direccion\"=EXCLUDED.\"direccion\",\"telefono\"=EXCLUDED.\"telefono\",\"email\"=EXCLUDED.\"email\",\"clave\"=EXCLUDED.\"clave\",\"activo\"=EXCLUDED.\"activo\" RETURNING \"idpersona\",\"cedula\",\"nombre\",\"direccion\",\"telefono\",\"email\",\"clave\",\"activo\";","level":"info"}
+{"message":"f609ce6e-be18-4535-b620-f57c0f432702[METODO->actualizarEstadoPersona][OK]->actualizacion exitosa","level":"info"}

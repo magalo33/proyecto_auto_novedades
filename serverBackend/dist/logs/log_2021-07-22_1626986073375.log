@@ -1,0 +1,5 @@
+{"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"f8415491-aa88-442f-a399-cd52ccf58fbe[METODO->getDepartamentos][ERROR]->Token Expirado","level":"error"}
+{"message":"fb4c457f-da47-48c7-8cc4-21ff5c3bc8f8[METODO->getDepartamentos][ERROR]->Token Expirado","level":"error"}
+{"message":"5ddbca56-3757-4881-8906-76686dad758c[METODO->getDepartamentos][SQL]Executing (default): SELECT \"iddepartamento\", \"descripcion\" FROM \"autos\".\"departamentos\" AS \"departamentos\" ORDER BY \"departamentos\".\"iddepartamento\";","level":"info"}
+{"message":"5ddbca56-3757-4881-8906-76686dad758c[METODO->getDepartamentos][OK]->consulta exitosa","level":"info"}
