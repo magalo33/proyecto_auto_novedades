@@ -35,6 +35,13 @@ class Security {
             padding: CryptoJS.pad.Pkcs7
         })));
     }
+    getDeEncryptString(data) {
+        return CryptoJS.enc.Utf8.stringify(CryptoJS.AES.decrypt(data, this.key, {
+            keySize: 128 / 8,
+            mode: CryptoJS.mode.CBC,
+            padding: CryptoJS.pad.Pkcs7
+        }));
+    }
 }
 exports.default = Security;
 //# sourceMappingURL=security.js.map

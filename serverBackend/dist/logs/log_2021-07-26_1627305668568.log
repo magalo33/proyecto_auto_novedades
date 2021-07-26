@@ -1,0 +1,3 @@
+{"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"4f7da850-20ce-4143-9cdc-ecb063327989[METODO->validateMessage][BODY]{\"data\":{\"requestLogin\":{\"idrol\":\"1\",\"cedula\":\"88230510\",\"clave\":\"U2FsdGVkX1+/SVp804fUr1JHDHy5u57rp3DIsY8Tsn8=\"}},\"expDate\":\"2021-07-26 08:21:13\"}","level":"info"}
+{"message":"4f7da850-20ce-4143-9cdc-ecb063327989[METODO->validarLogin][ERROR]->Se presentó un error al tratar de obtener la informacion de la base de datos SyntaxError: Unexpected token a in JSON at position 0","level":"error"}

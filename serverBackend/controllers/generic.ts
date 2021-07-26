@@ -2,9 +2,7 @@ import {Request,Response} from 'express';
 import  moment  from 'moment-timezone';
 import { PersonaInterface } from '../models/interfaces/persona.interface';
 import { RequestLogin } from '../models/interfaces/requestlogin';
-import Persona from '../models/persona';
-import Roles from '../models/rol';
-import RolesxPersona from '../models/rolesxpersona';
+import { RolesXpersona, RolXpersona } from '../models/interfaces/rolesxpersona';
 import Security from "../utilities/security";
 import Utilities from '../utilities/utilities';
 const winston = require('../winston/config');
@@ -21,14 +19,6 @@ export const token =  async(req:Request, res:Response) => {
     });
   }
 
-  /*{
-      este requet viajan encriptados
-      "data":{
-           "idrol": 1,
-          "cedula":"88230510",
-          "clave":"123456789"
-      }
-  }*/
   export const validarLogin =  async (req:Request, resp:Response) => {
     const security = new Security();
     const utilities = new Utilities();
@@ -39,7 +29,12 @@ export const token =  async(req:Request, res:Response) => {
     let requestLogin:RequestLogin;
     let rolesxpersona = new Array();
     let msg = '';
-    
+    let arrayRolesxpersona:RolXpersona[] = new Array();
+    let rolesXpersona:RolesXpersona = {
+        error: errorRet,
+        msg: msg,
+        rolesxpersona: arrayRolesxpersona
+    };
     try{ 
         msg = utilities.validateMessage(headers, body,uuid);
         uuid = uuid + "[METODO->validarLogin]";        
@@ -51,80 +46,7 @@ export const token =  async(req:Request, res:Response) => {
                     msg = 'Se presentó un error al tratar de obtener la información del login';
                     winston.error(uuid+"[ERROR]->"+msg);
                 }else{
-                    try{
-                        let persona = await Persona.findAll( {where:{cedula:requestLogin.cedula},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
-                        if(persona.length>0){
-                            let personaConPassword = await Persona.findAll( {
-                                where:
-                                { 
-                                    cedula:requestLogin.cedula,
-                                    clave: JSON.stringify(security.getDeEncrypt(requestLogin.clave))
-                                },
-                                attributes: [
-                                    'idpersona',
-                                    'cedula',
-                                    'nombre',
-                                    'direccion',
-                                    'telefono',
-                                    'email',
-                                    'activo'
-                                ],
-                                logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
-                            if(personaConPassword.length>0){                            
-                                let personaEncontrada:any = personaConPassword[0];
-                                try{
-                                    rolesxpersona = await RolesxPersona.findAll({
-                                        where:
-                                        {
-                                            idpersona:personaEncontrada.idpersona,
-                                            idrol:requestLogin.idrol
-                                        },
-                                        include:[
-                                            {
-                                                model: Roles, as: 'rol',foreignKey:'idrol'
-                                            },
-                                            {
-                                                model: Persona, as: 'persona',foreignKey:'idpersona'
-                                            }
-                                        ],
-                                    order:["idrolesxpersona"],logging: (sql) => winston.info(uuid+"[SQL]"+sql)}).then();
-                                    if(rolesxpersona.length>0){
-                                        rolesxpersona[0].persona.clave = '***...';
-                                        if(!rolesxpersona[0].persona.activo){
-                                            errorRet = 1;
-                                            msg = 'Esta persona se encuentra inactiva.';
-                                            winston.error(uuid+"[OK]->"+msg);
-                                            rolesxpersona = new Array();
-                                        }else{
-                                            errorRet = 0;
-                                            msg = 'Consulta ok';
-                                            winston.error(uuid+"[OK]->"+msg);
-                                        }                                    
-                                    }else{
-                                        errorRet = 1;
-                                        msg = 'Aunque los datos de la persona fueron encontrados, esta no se encuentra relacionada con el rol seleccionado.';
-                                        winston.error(uuid+"[ERROR]->"+msg);
-                                    }                                
-                                }catch(error){
-                                    errorRet = 1;
-                                    msg = 'Se presentó un error al tratar de obtener la informacion de la base de datos \n'+error;
-                                    winston.error(uuid+"[ERROR]->"+msg);
-                                }
-                            }else{
-                                errorRet = 1;
-                                msg = 'No se encontraron datos con ese criterio de busqueda. Debe verificar su clave.';
-                                winston.error(uuid+"[ERROR]->"+msg);
-                            }
-                        }else{
-                            errorRet = 1;
-                            msg = 'No se encontraron datos con ese criterio de busqueda. Debe verificar su cédula.';
-                            winston.error(uuid+"[ERROR]->"+msg);
-                        }
-                    }catch(error){
-                        errorRet = 1;
-                        msg = 'Se presentó un error al tratar de obtener la informacion de la base de datos '+error;
-                        winston.error(uuid+"[ERROR]->"+msg);
-                    }
+                    rolesXpersona  = await utilities.validarLigin(headers,uuid);                    
                 }            
             }catch(error){
                 requestLogin = {idrol:0,cedula:'0',clave:'0'};   
@@ -144,8 +66,8 @@ export const token =  async(req:Request, res:Response) => {
         winston.error(uuid+"[ERROR]->"+msg);
     } 
     resp.json({
-        error: errorRet,
-        msg,
-        rolesxpersona
+        error: rolesXpersona.error,
+        msg:rolesXpersona.msg,
+        rolesxpersona:rolesXpersona.rolesxpersona
     });    
   }

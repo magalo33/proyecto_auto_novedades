@@ -4,6 +4,7 @@ import Sequelize from 'sequelize';
 //import { PersonaInterface } from '../models/interfaces/persona.interface';
 import Entidad from '../models/entidad';
 import { EntidadInterface } from '../models/interfaces/entidad.interface';
+import { RolesXpersona, RolXpersona } from '../models/interfaces/rolesxpersona';
 const winston = require('../winston/config');
 
 /*
@@ -270,77 +271,67 @@ export const actualizarEntidad = async ( req: Request,resp: Response )=>{
     uuid = uuid + "[METODO->actualizarEntidad]";
     let entidad:EntidadInterface = utilities.getEntidadInterface();
     let actualizado:boolean = false;
+    let arrayRolesxpersona:RolXpersona[] = new Array();
+    let rolesXpersona:RolesXpersona = {
+        error: errorRet,
+        msg: msg,
+        rolesxpersona: arrayRolesxpersona
+    };
     if(msg == "Ok"){
         msg = 'No se realizo la actualización. Verifique el parametro de control';
-        try{            
-            entidad = utilities.getEntidadDesdeBody(req.headers,uuid);
-            if(entidad.identidad>0){
-                if(item=='estado'){
-                    entidad = <EntidadInterface>await Entidad.update( {activo:entidad.activo} ,
-                         {where:{identidad:entidad.identidad},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
-                         actualizado = true;
-                }else{
-                    if(item=='nombre'){
-                        entidad = <EntidadInterface>await Entidad.update( {nombre:entidad.nombre} ,
+        rolesXpersona  = await utilities.validarLigin(req.headers,uuid);       
+        errorRet = rolesXpersona.error;
+        msg = rolesXpersona.msg;
+        if(errorRet == 0){
+            try{            
+                entidad = utilities.getEntidadDesdeBody(req.headers,uuid);
+                if(entidad.identidad>0){
+                    if(item=='estado'){
+                        entidad = <EntidadInterface>await Entidad.update( {activo:entidad.activo} ,
                              {where:{identidad:entidad.identidad},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
                              actualizado = true;
                     }else{
-                        if(item=='direccion'){
-                            entidad = <EntidadInterface>await Entidad.update( {direccion:entidad.direccion} ,
+                        if(item=='nombre'){
+                            entidad = <EntidadInterface>await Entidad.update( {nombre:entidad.nombre} ,
                                  {where:{identidad:entidad.identidad},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
                                  actualizado = true;
                         }else{
-                            if(item=='telefono'){
-                                entidad = <EntidadInterface>await Entidad.update( {telefono:entidad.telefono} ,
+                            if(item=='direccion'){
+                                entidad = <EntidadInterface>await Entidad.update( {direccion:entidad.direccion} ,
                                      {where:{identidad:entidad.identidad},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
                                      actualizado = true;
                             }else{
-                                if(item=='email'){
-                                    const Op = Sequelize.Op;
-                                    let consultaPorEmail = await Entidad.findAll( {where:{email: {[Op.iLike]: '%'+entidad.email+'%'}},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
-                                    if(consultaPorEmail.length>0){
-                                        errorRet = 1;
-                                        msg = 'Ya existe una entidad con este email';
-                                        winston.error(uuid+"[ERROR]->"+msg);
-                                    }else{
-                                        entidad = <EntidadInterface>await Entidad.update( {email:entidad.email} ,
-                                            {where:{identidad:entidad.identidad},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
-                                            actualizado = true;  
-                                    }
+                                if(item=='telefono'){
+                                    entidad = <EntidadInterface>await Entidad.update( {telefono:entidad.telefono} ,
+                                         {where:{identidad:entidad.identidad},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
+                                         actualizado = true;
                                 }else{
-                                    if(item=='nit'){
-                                        let consultaPorCedula = await Entidad.findAll( {where:{nit:entidad.nit},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
-                                        if(consultaPorCedula.length>0){
+                                    if(item=='email'){
+                                        const Op = Sequelize.Op;
+                                        let consultaPorEmail = await Entidad.findAll( {where:{email: {[Op.iLike]: '%'+entidad.email+'%'}},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
+                                        if(consultaPorEmail.length>0){
                                             errorRet = 1;
-                                            msg = 'Ya existe una entidad con este nit';
+                                            msg = 'Ya existe una entidad con este email';
                                             winston.error(uuid+"[ERROR]->"+msg);
                                         }else{
-                                            entidad = <EntidadInterface>await Entidad.update( {nit:entidad.nit} ,
+                                            entidad = <EntidadInterface>await Entidad.update( {email:entidad.email} ,
                                                 {where:{identidad:entidad.identidad},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
-                                                actualizado = true; 
+                                                actualizado = true;  
                                         }
                                     }else{
-                                        if(item=='todo'){
-                                            const Op = Sequelize.Op;
-                                            let consultaPorEmail = await Entidad.findAll( {where:{email: {[Op.iLike]: '%'+entidad.email+'%'}},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
-                                            if(consultaPorEmail.length>0){
+                                        if(item=='nit'){
+                                            let consultaPorCedula = await Entidad.findAll( {where:{nit:entidad.nit},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
+                                            if(consultaPorCedula.length>0){
                                                 errorRet = 1;
-                                                msg = 'Ya existe una entidad con este email';
+                                                msg = 'Ya existe una entidad con este nit';
                                                 winston.error(uuid+"[ERROR]->"+msg);
                                             }else{
-                                                let consultaPorNit = await Entidad.findAll( {where:{nit:entidad.nit},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
-                                                if(consultaPorNit.length>0){
-                                                    errorRet = 1;
-                                                    msg = 'Ya existe una entidad con este nit';
-                                                    winston.error(uuid+"[ERROR]->"+msg);
-                                                }else{ 
-                                                    entidad = <EntidadInterface>await Entidad.upsert( entidad,
-                                                    {logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
-                                                    actualizado = true;
-                                                }
-                                            }                                           
+                                                entidad = <EntidadInterface>await Entidad.update( {nit:entidad.nit} ,
+                                                    {where:{identidad:entidad.identidad},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
+                                                    actualizado = true; 
+                                            }
                                         }else{
-                                            if(item=='nuevo'){
+                                            if(item=='todo'){
                                                 const Op = Sequelize.Op;
                                                 let consultaPorEmail = await Entidad.findAll( {where:{email: {[Op.iLike]: '%'+entidad.email+'%'}},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
                                                 if(consultaPorEmail.length>0){
@@ -353,19 +344,40 @@ export const actualizarEntidad = async ( req: Request,resp: Response )=>{
                                                         errorRet = 1;
                                                         msg = 'Ya existe una entidad con este nit';
                                                         winston.error(uuid+"[ERROR]->"+msg);
+                                                    }else{ 
+                                                        entidad = <EntidadInterface>await Entidad.upsert( entidad,
+                                                        {logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
+                                                        actualizado = true;
+                                                    }
+                                                }                                           
+                                            }else{
+                                                if(item=='nuevo'){
+                                                    const Op = Sequelize.Op;
+                                                    let consultaPorEmail = await Entidad.findAll( {where:{email: {[Op.iLike]: '%'+entidad.email+'%'}},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
+                                                    if(consultaPorEmail.length>0){
+                                                        errorRet = 1;
+                                                        msg = 'Ya existe una entidad con este email';
+                                                        winston.error(uuid+"[ERROR]->"+msg);
                                                     }else{
-                                                        entidad = <EntidadInterface>await Entidad.create( 
-                                                            {
-                                                                nit:entidad.nit,
-                                                                nombre:entidad.nombre,
-                                                                direccion:entidad.direccion,
-                                                                telefono:entidad.telefono,
-                                                                email:entidad.email,
-                                                                activo:false
-                                                            },
-                                                             {logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
-                                                             msg = 'Registro de nueva entidad ok';
-                                                             actualizado = true;       
+                                                        let consultaPorNit = await Entidad.findAll( {where:{nit:entidad.nit},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
+                                                        if(consultaPorNit.length>0){
+                                                            errorRet = 1;
+                                                            msg = 'Ya existe una entidad con este nit';
+                                                            winston.error(uuid+"[ERROR]->"+msg);
+                                                        }else{
+                                                            entidad = <EntidadInterface>await Entidad.create( 
+                                                                {
+                                                                    nit:entidad.nit,
+                                                                    nombre:entidad.nombre,
+                                                                    direccion:entidad.direccion,
+                                                                    telefono:entidad.telefono,
+                                                                    email:entidad.email,
+                                                                    activo:false
+                                                                },
+                                                                 {logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
+                                                                 msg = 'Registro de nueva entidad ok';
+                                                                 actualizado = true;       
+                                                        }
                                                     }
                                                 }
                                             }
@@ -375,53 +387,53 @@ export const actualizarEntidad = async ( req: Request,resp: Response )=>{
                             }
                         }
                     }
-                }
-                if(actualizado){
-                    msg = "actualizacion exitosa";
-                    winston.info(uuid+"[OK]->"+msg);
-                }else{
-                    errorRet = 1;                   
-                    winston.error(uuid+"[ERROR]->"+msg);
-                }
-            }else{
-                if(item=='nuevo'){
-                    const Op = Sequelize.Op;
-                    let consultaPorEmail = await Entidad.findAll( {where:{email: {[Op.iLike]: '%'+entidad.email+'%'}},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
-                    if(consultaPorEmail.length>0){
-                        errorRet = 1;
-                        msg = 'Ya existe una entidad con este email';
-                        winston.error(uuid+"[ERROR]->"+msg);
+                    if(actualizado){
+                        msg = "actualizacion exitosa";
+                        winston.info(uuid+"[OK]->"+msg);
                     }else{
-                        let consultaPorNit = await Entidad.findAll( {where:{nit:entidad.nit},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
-                        if(consultaPorNit.length>0){
-                            errorRet = 1;
-                            msg = 'Ya existe una entidad con este nit';
-                            winston.error(uuid+"[ERROR]->"+msg);
-                        }else{
-                            entidad = <EntidadInterface>await Entidad.create( 
-                                {
-                                    nit:entidad.nit,
-                                    nombre:entidad.nombre,
-                                    direccion:entidad.direccion,
-                                    telefono:entidad.telefono,
-                                    email:entidad.email,
-                                    activo:false
-                                },
-                                    {logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
-                                    msg = 'Registro de nueva entidad ok';
-                                    actualizado = true;       
-                        }
+                        errorRet = 1;                   
+                        winston.error(uuid+"[ERROR]->"+msg);
                     }
-                }else{
+                    }else{
+                        if(item=='nuevo'){
+                            const Op = Sequelize.Op;
+                            let consultaPorEmail = await Entidad.findAll( {where:{email: {[Op.iLike]: '%'+entidad.email+'%'}},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
+                            if(consultaPorEmail.length>0){
+                                errorRet = 1;
+                                msg = 'Ya existe una entidad con este email';
+                                winston.error(uuid+"[ERROR]->"+msg);
+                            }else{
+                                let consultaPorNit = await Entidad.findAll( {where:{nit:entidad.nit},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
+                                if(consultaPorNit.length>0){
+                                    errorRet = 1;
+                                    msg = 'Ya existe una entidad con este nit';
+                                    winston.error(uuid+"[ERROR]->"+msg);
+                                }else{
+                                    entidad = <EntidadInterface>await Entidad.create( 
+                                        {
+                                            nit:entidad.nit,
+                                            nombre:entidad.nombre,
+                                            direccion:entidad.direccion,
+                                            telefono:entidad.telefono,
+                                            email:entidad.email,
+                                            activo:false
+                                        },
+                                            {logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
+                                            msg = 'Registro de nueva entidad ok';
+                                            actualizado = true;       
+                                }
+                            }
+                        }else{
+                            errorRet = 1;
+                            msg = 'Se presentó un arror al tratar de obtener el objeto entidad';
+                            winston.error(uuid+"[ERROR]->"+msg);
+                        }                
+                    }            
+                }catch(error){
                     errorRet = 1;
-                    msg = 'Se presentó un arror al tratar de obtener el objeto entidad';
+                    msg = 'Se presentó un error al tratar de obtener la informacion de la base de datos '+error;
                     winston.error(uuid+"[ERROR]->"+msg);
-                }                
-            }            
-        }catch(error){
-            errorRet = 1;
-            msg = 'Se presentó un error al tratar de obtener la informacion de la base de datos '+error;
-            winston.error(uuid+"[ERROR]->"+msg);
+                }
         }
     }else{
         errorRet = 1;

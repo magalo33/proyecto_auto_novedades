@@ -296,81 +296,69 @@ const actualizarEntidad = (req, resp) => __awaiter(void 0, void 0, void 0, funct
     uuid = uuid + "[METODO->actualizarEntidad]";
     let entidad = utilities.getEntidadInterface();
     let actualizado = false;
+    let arrayRolesxpersona = new Array();
+    let rolesXpersona = {
+        error: errorRet,
+        msg: msg,
+        rolesxpersona: arrayRolesxpersona
+    };
     if (msg == "Ok") {
         msg = 'No se realizo la actualización. Verifique el parametro de control';
-        try {
-            entidad = utilities.getEntidadDesdeBody(req.headers, uuid);
-            if (entidad.identidad > 0) {
-                if (item == 'estado') {
-                    entidad = (yield entidad_1.default.update({ activo: entidad.activo }, { where: { identidad: entidad.identidad }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
-                    actualizado = true;
-                }
-                else {
-                    if (item == 'nombre') {
-                        entidad = (yield entidad_1.default.update({ nombre: entidad.nombre }, { where: { identidad: entidad.identidad }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
+        rolesXpersona = yield utilities.validarLigin(req.headers, uuid);
+        errorRet = rolesXpersona.error;
+        msg = rolesXpersona.msg;
+        if (errorRet == 0) {
+            try {
+                entidad = utilities.getEntidadDesdeBody(req.headers, uuid);
+                if (entidad.identidad > 0) {
+                    if (item == 'estado') {
+                        entidad = (yield entidad_1.default.update({ activo: entidad.activo }, { where: { identidad: entidad.identidad }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
                         actualizado = true;
                     }
                     else {
-                        if (item == 'direccion') {
-                            entidad = (yield entidad_1.default.update({ direccion: entidad.direccion }, { where: { identidad: entidad.identidad }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
+                        if (item == 'nombre') {
+                            entidad = (yield entidad_1.default.update({ nombre: entidad.nombre }, { where: { identidad: entidad.identidad }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
                             actualizado = true;
                         }
                         else {
-                            if (item == 'telefono') {
-                                entidad = (yield entidad_1.default.update({ telefono: entidad.telefono }, { where: { identidad: entidad.identidad }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
+                            if (item == 'direccion') {
+                                entidad = (yield entidad_1.default.update({ direccion: entidad.direccion }, { where: { identidad: entidad.identidad }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
                                 actualizado = true;
                             }
                             else {
-                                if (item == 'email') {
-                                    const Op = sequelize_1.default.Op;
-                                    let consultaPorEmail = yield entidad_1.default.findAll({ where: { email: { [Op.iLike]: '%' + entidad.email + '%' } }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
-                                    if (consultaPorEmail.length > 0) {
-                                        errorRet = 1;
-                                        msg = 'Ya existe una entidad con este email';
-                                        winston.error(uuid + "[ERROR]->" + msg);
-                                    }
-                                    else {
-                                        entidad = (yield entidad_1.default.update({ email: entidad.email }, { where: { identidad: entidad.identidad }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
-                                        actualizado = true;
-                                    }
+                                if (item == 'telefono') {
+                                    entidad = (yield entidad_1.default.update({ telefono: entidad.telefono }, { where: { identidad: entidad.identidad }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
+                                    actualizado = true;
                                 }
                                 else {
-                                    if (item == 'nit') {
-                                        let consultaPorCedula = yield entidad_1.default.findAll({ where: { nit: entidad.nit }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
-                                        if (consultaPorCedula.length > 0) {
+                                    if (item == 'email') {
+                                        const Op = sequelize_1.default.Op;
+                                        let consultaPorEmail = yield entidad_1.default.findAll({ where: { email: { [Op.iLike]: '%' + entidad.email + '%' } }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
+                                        if (consultaPorEmail.length > 0) {
                                             errorRet = 1;
-                                            msg = 'Ya existe una entidad con este nit';
+                                            msg = 'Ya existe una entidad con este email';
                                             winston.error(uuid + "[ERROR]->" + msg);
                                         }
                                         else {
-                                            entidad = (yield entidad_1.default.update({ nit: entidad.nit }, { where: { identidad: entidad.identidad }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
+                                            entidad = (yield entidad_1.default.update({ email: entidad.email }, { where: { identidad: entidad.identidad }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
                                             actualizado = true;
                                         }
                                     }
                                     else {
-                                        if (item == 'todo') {
-                                            const Op = sequelize_1.default.Op;
-                                            let consultaPorEmail = yield entidad_1.default.findAll({ where: { email: { [Op.iLike]: '%' + entidad.email + '%' } }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
-                                            if (consultaPorEmail.length > 0) {
+                                        if (item == 'nit') {
+                                            let consultaPorCedula = yield entidad_1.default.findAll({ where: { nit: entidad.nit }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
+                                            if (consultaPorCedula.length > 0) {
                                                 errorRet = 1;
-                                                msg = 'Ya existe una entidad con este email';
+                                                msg = 'Ya existe una entidad con este nit';
                                                 winston.error(uuid + "[ERROR]->" + msg);
                                             }
                                             else {
-                                                let consultaPorNit = yield entidad_1.default.findAll({ where: { nit: entidad.nit }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
-                                                if (consultaPorNit.length > 0) {
-                                                    errorRet = 1;
-                                                    msg = 'Ya existe una entidad con este nit';
-                                                    winston.error(uuid + "[ERROR]->" + msg);
-                                                }
-                                                else {
-                                                    entidad = (yield entidad_1.default.upsert(entidad, { logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
-                                                    actualizado = true;
-                                                }
+                                                entidad = (yield entidad_1.default.update({ nit: entidad.nit }, { where: { identidad: entidad.identidad }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
+                                                actualizado = true;
                                             }
                                         }
                                         else {
-                                            if (item == 'nuevo') {
+                                            if (item == 'todo') {
                                                 const Op = sequelize_1.default.Op;
                                                 let consultaPorEmail = yield entidad_1.default.findAll({ where: { email: { [Op.iLike]: '%' + entidad.email + '%' } }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
                                                 if (consultaPorEmail.length > 0) {
@@ -386,16 +374,39 @@ const actualizarEntidad = (req, resp) => __awaiter(void 0, void 0, void 0, funct
                                                         winston.error(uuid + "[ERROR]->" + msg);
                                                     }
                                                     else {
-                                                        entidad = (yield entidad_1.default.create({
-                                                            nit: entidad.nit,
-                                                            nombre: entidad.nombre,
-                                                            direccion: entidad.direccion,
-                                                            telefono: entidad.telefono,
-                                                            email: entidad.email,
-                                                            activo: false
-                                                        }, { logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
-                                                        msg = 'Registro de nueva entidad ok';
+                                                        entidad = (yield entidad_1.default.upsert(entidad, { logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
                                                         actualizado = true;
+                                                    }
+                                                }
+                                            }
+                                            else {
+                                                if (item == 'nuevo') {
+                                                    const Op = sequelize_1.default.Op;
+                                                    let consultaPorEmail = yield entidad_1.default.findAll({ where: { email: { [Op.iLike]: '%' + entidad.email + '%' } }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
+                                                    if (consultaPorEmail.length > 0) {
+                                                        errorRet = 1;
+                                                        msg = 'Ya existe una entidad con este email';
+                                                        winston.error(uuid + "[ERROR]->" + msg);
+                                                    }
+                                                    else {
+                                                        let consultaPorNit = yield entidad_1.default.findAll({ where: { nit: entidad.nit }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
+                                                        if (consultaPorNit.length > 0) {
+                                                            errorRet = 1;
+                                                            msg = 'Ya existe una entidad con este nit';
+                                                            winston.error(uuid + "[ERROR]->" + msg);
+                                                        }
+                                                        else {
+                                                            entidad = (yield entidad_1.default.create({
+                                                                nit: entidad.nit,
+                                                                nombre: entidad.nombre,
+                                                                direccion: entidad.direccion,
+                                                                telefono: entidad.telefono,
+                                                                email: entidad.email,
+                                                                activo: false
+                                                            }, { logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
+                                                            msg = 'Registro de nueva entidad ok';
+                                                            actualizado = true;
+                                                        }
                                                     }
                                                 }
                                             }
@@ -405,57 +416,57 @@ const actualizarEntidad = (req, resp) => __awaiter(void 0, void 0, void 0, funct
                             }
                         }
                     }
-                }
-                if (actualizado) {
-                    msg = "actualizacion exitosa";
-                    winston.info(uuid + "[OK]->" + msg);
-                }
-                else {
-                    errorRet = 1;
-                    winston.error(uuid + "[ERROR]->" + msg);
-                }
-            }
-            else {
-                if (item == 'nuevo') {
-                    const Op = sequelize_1.default.Op;
-                    let consultaPorEmail = yield entidad_1.default.findAll({ where: { email: { [Op.iLike]: '%' + entidad.email + '%' } }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
-                    if (consultaPorEmail.length > 0) {
-                        errorRet = 1;
-                        msg = 'Ya existe una entidad con este email';
-                        winston.error(uuid + "[ERROR]->" + msg);
+                    if (actualizado) {
+                        msg = "actualizacion exitosa";
+                        winston.info(uuid + "[OK]->" + msg);
                     }
                     else {
-                        let consultaPorNit = yield entidad_1.default.findAll({ where: { nit: entidad.nit }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
-                        if (consultaPorNit.length > 0) {
+                        errorRet = 1;
+                        winston.error(uuid + "[ERROR]->" + msg);
+                    }
+                }
+                else {
+                    if (item == 'nuevo') {
+                        const Op = sequelize_1.default.Op;
+                        let consultaPorEmail = yield entidad_1.default.findAll({ where: { email: { [Op.iLike]: '%' + entidad.email + '%' } }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
+                        if (consultaPorEmail.length > 0) {
                             errorRet = 1;
-                            msg = 'Ya existe una entidad con este nit';
+                            msg = 'Ya existe una entidad con este email';
                             winston.error(uuid + "[ERROR]->" + msg);
                         }
                         else {
-                            entidad = (yield entidad_1.default.create({
-                                nit: entidad.nit,
-                                nombre: entidad.nombre,
-                                direccion: entidad.direccion,
-                                telefono: entidad.telefono,
-                                email: entidad.email,
-                                activo: false
-                            }, { logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
-                            msg = 'Registro de nueva entidad ok';
-                            actualizado = true;
+                            let consultaPorNit = yield entidad_1.default.findAll({ where: { nit: entidad.nit }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
+                            if (consultaPorNit.length > 0) {
+                                errorRet = 1;
+                                msg = 'Ya existe una entidad con este nit';
+                                winston.error(uuid + "[ERROR]->" + msg);
+                            }
+                            else {
+                                entidad = (yield entidad_1.default.create({
+                                    nit: entidad.nit,
+                                    nombre: entidad.nombre,
+                                    direccion: entidad.direccion,
+                                    telefono: entidad.telefono,
+                                    email: entidad.email,
+                                    activo: false
+                                }, { logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
+                                msg = 'Registro de nueva entidad ok';
+                                actualizado = true;
+                            }
                         }
                     }
-                }
-                else {
-                    errorRet = 1;
-                    msg = 'Se presentó un arror al tratar de obtener el objeto entidad';
-                    winston.error(uuid + "[ERROR]->" + msg);
+                    else {
+                        errorRet = 1;
+                        msg = 'Se presentó un arror al tratar de obtener el objeto entidad';
+                        winston.error(uuid + "[ERROR]->" + msg);
+                    }
                 }
             }
-        }
-        catch (error) {
-            errorRet = 1;
-            msg = 'Se presentó un error al tratar de obtener la informacion de la base de datos ' + error;
-            winston.error(uuid + "[ERROR]->" + msg);
+            catch (error) {
+                errorRet = 1;
+                msg = 'Se presentó un error al tratar de obtener la informacion de la base de datos ' + error;
+                winston.error(uuid + "[ERROR]->" + msg);
+            }
         }
     }
     else {

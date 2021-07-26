@@ -1,4 +1,13 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -7,6 +16,9 @@ const uuid_1 = require("uuid");
 const security_1 = __importDefault(require("./security"));
 const morgan_1 = __importDefault(require("morgan"));
 const express_1 = __importDefault(require("express"));
+const persona_1 = __importDefault(require("../models/persona"));
+const rolesxpersona_1 = __importDefault(require("../models/rolesxpersona"));
+const rol_1 = __importDefault(require("../models/rol"));
 const winston = require('../winston/config');
 const app = express_1.default();
 app.use(morgan_1.default('combined', { stream: winston.stream }));
@@ -151,6 +163,117 @@ class Utilities {
     }
     getToken() {
         return uuid_1.v4();
+    }
+    validarLigin(headers, uuid) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const security = new security_1.default();
+            let arrayRolesxpersona = new Array();
+            let requestLogin;
+            let errorRet = 0;
+            let msgg = '';
+            try {
+                requestLogin = this.getLoggin(headers, uuid);
+                if (requestLogin.idrol == 0) {
+                    errorRet = 1;
+                    msgg = 'Se presentó un error al tratar de obtener la información del login';
+                    winston.error(uuid + "[ERROR]->" + msgg);
+                }
+                else {
+                    try {
+                        let persona = yield persona_1.default.findAll({ where: { cedula: requestLogin.cedula }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
+                        if (persona.length > 0) {
+                            let personaConPassword = yield persona_1.default.findAll({
+                                where: {
+                                    cedula: requestLogin.cedula,
+                                    clave: security.getDeEncryptString(requestLogin.clave)
+                                },
+                                attributes: [
+                                    'idpersona',
+                                    'cedula',
+                                    'nombre',
+                                    'direccion',
+                                    'telefono',
+                                    'email',
+                                    'activo'
+                                ],
+                                logging: (sql) => winston.info(uuid + "[SQL]" + sql)
+                            }).then();
+                            if (personaConPassword.length > 0) {
+                                let personaEncontrada = personaConPassword[0];
+                                try {
+                                    arrayRolesxpersona = yield rolesxpersona_1.default.findAll({
+                                        where: {
+                                            idpersona: personaEncontrada.idpersona,
+                                            idrol: requestLogin.idrol
+                                        },
+                                        include: [
+                                            {
+                                                model: rol_1.default, as: 'rol', foreignKey: 'idrol'
+                                            },
+                                            {
+                                                model: persona_1.default, as: 'persona', foreignKey: 'idpersona'
+                                            }
+                                        ],
+                                        order: ["idrolesxpersona"], logging: (sql) => winston.info(uuid + "[SQL]" + sql)
+                                    }).then();
+                                    if (arrayRolesxpersona.length > 0) {
+                                        arrayRolesxpersona[0].persona.clave = '***...';
+                                        if (!arrayRolesxpersona[0].persona.activo) {
+                                            errorRet = 1;
+                                            msgg = 'Esta persona se encuentra inactiva.';
+                                            winston.error(uuid + "[OK]->" + msgg);
+                                            arrayRolesxpersona = new Array();
+                                        }
+                                        else {
+                                            errorRet = 0;
+                                            msgg = 'Consulta ok';
+                                            winston.error(uuid + "[OK]->" + msgg);
+                                        }
+                                    }
+                                    else {
+                                        errorRet = 1;
+                                        msgg = 'Aunque los datos de la persona fueron encontrados, esta no se encuentra relacionada con el rol seleccionado.';
+                                        winston.error(uuid + "[ERROR]->" + msgg);
+                                    }
+                                }
+                                catch (error) {
+                                    errorRet = 1;
+                                    msgg = 'Se presentó un error al tratar de obtener la informacion de la base de datos \n' + error;
+                                    winston.error(uuid + "[ERROR]->" + msgg);
+                                }
+                            }
+                            else {
+                                errorRet = 1;
+                                msgg = 'No se encontraron datos con ese criterio de busqueda. Debe verificar su clave.';
+                                winston.error(uuid + "[ERROR]->" + msgg);
+                            }
+                        }
+                        else {
+                            errorRet = 1;
+                            msgg = 'No se encontraron datos con ese criterio de busqueda. Debe verificar su cédula.';
+                            winston.error(uuid + "[ERROR]->" + msgg);
+                        }
+                    }
+                    catch (error) {
+                        errorRet = 1;
+                        msgg = 'Se presentó un error al tratar de obtener la informacion de la base de datos ' + error;
+                        winston.error(uuid + "[ERROR]->" + msgg);
+                    }
+                }
+            }
+            catch (error) {
+                requestLogin = { idrol: 0, cedula: '0', clave: '0' };
+                errorRet = 1;
+                msgg = 'Se presentó un error al tratar de obtener la información del login ' + error;
+                winston.error(uuid + "[ERROR]->" + msgg);
+            }
+            let rolesXpersona = {
+                error: errorRet,
+                msg: msgg,
+                rolesxpersona: arrayRolesxpersona
+            };
+            return rolesXpersona;
+        });
     }
 }
 exports.default = Utilities;

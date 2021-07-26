@@ -354,8 +354,25 @@ const actualizarPersona = (req, resp) => __awaiter(void 0, void 0, void 0, funct
                                         }
                                         else {
                                             if (item == 'todo') {
-                                                persona = (yield persona_1.default.upsert(persona, { logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
-                                                actualizado = true;
+                                                const Op = sequelize_1.default.Op;
+                                                let consultaPorEmail = yield persona_1.default.findAll({ where: { email: { [Op.iLike]: '%' + persona.email + '%' } }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
+                                                if (consultaPorEmail.length > 0) {
+                                                    errorRet = 1;
+                                                    msg = 'Ya existe una persona con este email';
+                                                    winston.error(uuid + "[ERROR]->" + msg);
+                                                }
+                                                else {
+                                                    let consultaPorCedula = yield persona_1.default.findAll({ where: { cedula: persona.cedula }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
+                                                    if (consultaPorCedula.length > 0) {
+                                                        errorRet = 1;
+                                                        msg = 'Ya existe una persona con esta cédula';
+                                                        winston.error(uuid + "[ERROR]->" + msg);
+                                                    }
+                                                    else {
+                                                        persona = (yield persona_1.default.upsert(persona, { logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
+                                                        actualizado = true;
+                                                    }
+                                                }
                                             }
                                             else {
                                                 if (item == 'nuevo') {

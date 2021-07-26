@@ -5,6 +5,10 @@ import express from "express";
 import { PersonaInterface } from '../models/interfaces/persona.interface';
 import { RequestLogin } from '../models/interfaces/requestlogin';
 import { EntidadInterface } from '../models/interfaces/entidad.interface';
+import Persona from '../models/persona';
+import RolesxPersona from '../models/rolesxpersona';
+import Roles from '../models/rol';
+import { RolesXpersona, RolXpersona } from '../models/interfaces/rolesxpersona';
 
 const winston = require('../winston/config');
 const app = express();
@@ -154,6 +158,109 @@ class Utilities {
 
     public getToken(): string {
         return uuidv4();
+      }
+
+
+      async validarLigin(headers:any,uuid:string):Promise<RolesXpersona>{
+        const security = new Security();
+        let arrayRolesxpersona:RolXpersona[] = new Array();
+        let requestLogin:RequestLogin;
+        let errorRet = 0;
+        let msgg = '';
+        try{
+            requestLogin = this.getLoggin(headers,uuid);
+            if(requestLogin.idrol == 0){
+                errorRet = 1;
+                msgg = 'Se presentó un error al tratar de obtener la información del login';
+                winston.error(uuid+"[ERROR]->"+msgg);
+            }else{
+                try{
+                    let persona = await Persona.findAll( {where:{cedula:requestLogin.cedula},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
+                    if(persona.length>0){
+                        let personaConPassword = await Persona.findAll( {
+                            where:
+                            { 
+                                cedula:requestLogin.cedula,
+                                clave: security.getDeEncryptString(requestLogin.clave)
+                            },
+                            attributes: [
+                                'idpersona',
+                                'cedula',
+                                'nombre',
+                                'direccion',
+                                'telefono',
+                                'email',
+                                'activo'
+                            ],
+                            logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
+                        if(personaConPassword.length>0){                            
+                            let personaEncontrada:any = personaConPassword[0];
+                            try{
+                                arrayRolesxpersona = await RolesxPersona.findAll({
+                                    where:
+                                    {
+                                        idpersona:personaEncontrada.idpersona,
+                                        idrol:requestLogin.idrol
+                                    },
+                                    include:[
+                                        {
+                                            model: Roles, as: 'rol',foreignKey:'idrol'
+                                        },
+                                        {
+                                            model: Persona, as: 'persona',foreignKey:'idpersona'
+                                        }
+                                    ],
+                                order:["idrolesxpersona"],logging: (sql) => winston.info(uuid+"[SQL]"+sql)}).then();
+                                if(arrayRolesxpersona.length>0){
+                                    arrayRolesxpersona[0].persona.clave = '***...';
+                                    if(!arrayRolesxpersona[0].persona.activo){
+                                        errorRet = 1;
+                                        msgg = 'Esta persona se encuentra inactiva.';
+                                        winston.error(uuid+"[OK]->"+msgg);
+                                        arrayRolesxpersona = new Array();
+                                    }else{
+                                        errorRet = 0;
+                                        msgg = 'Consulta ok';
+                                        winston.error(uuid+"[OK]->"+msgg);
+                                    }                                    
+                                }else{
+                                    errorRet = 1;
+                                    msgg = 'Aunque los datos de la persona fueron encontrados, esta no se encuentra relacionada con el rol seleccionado.';
+                                    winston.error(uuid+"[ERROR]->"+msgg);
+                                }                                
+                            }catch(error){
+                                errorRet = 1;
+                                msgg = 'Se presentó un error al tratar de obtener la informacion de la base de datos \n'+error;
+                                winston.error(uuid+"[ERROR]->"+msgg);
+                            }
+                        }else{
+                            errorRet = 1;
+                            msgg = 'No se encontraron datos con ese criterio de busqueda. Debe verificar su clave.';
+                            winston.error(uuid+"[ERROR]->"+msgg);
+                        }
+                    }else{
+                        errorRet = 1;
+                        msgg = 'No se encontraron datos con ese criterio de busqueda. Debe verificar su cédula.';
+                        winston.error(uuid+"[ERROR]->"+msgg);
+                    }
+                }catch(error){
+                    errorRet = 1;
+                    msgg = 'Se presentó un error al tratar de obtener la informacion de la base de datos '+error;
+                    winston.error(uuid+"[ERROR]->"+msgg);
+                }
+            }            
+        }catch(error){
+            requestLogin = {idrol:0,cedula:'0',clave:'0'};   
+            errorRet = 1;
+            msgg = 'Se presentó un error al tratar de obtener la información del login '+error;
+            winston.error(uuid+"[ERROR]->"+msgg);
+        }
+        let rolesXpersona:RolesXpersona={
+            error: errorRet,
+            msg: msgg,
+            rolesxpersona: arrayRolesxpersona
+        };
+        return rolesXpersona;
       }
       
   }
