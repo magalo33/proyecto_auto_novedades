@@ -285,6 +285,7 @@ export const actualizarEntidad = async ( req: Request,resp: Response )=>{
         if(errorRet == 0){
             try{            
                 entidad = utilities.getEntidadDesdeBody(req.headers,uuid);
+                console.log(entidad);
                 if(entidad.identidad>0){
                     if(item=='estado'){
                         entidad = <EntidadInterface>await Entidad.update( {activo:entidad.activo} ,
