@@ -1,7 +1,0 @@
-{"message":"You have successfully started working with winston and morgan","level":"info"}
-{"message":"59442ac4-1bf6-4af5-87f8-9ca5ef3da899[SQL]Executing (default): SELECT \"idcontacto\", \"Persona\", \"cargo\", \"telefono\", \"identidad\" FROM \"autos\".\"contactos\" AS \"contactos\" ORDER BY \"contactos\".\"cargo\";","level":"info"}
-{"message":"59442ac4-1bf6-4af5-87f8-9ca5ef3da899[ERROR]->Se presentó un error al tratar de obtener la informacion de la base de datos","level":"error"}
-{"message":"3c58b1fb-d612-4819-95ce-767c8bbac7c4[SQL]Executing (default): SELECT \"idcontacto\", \"Persona\", \"cargo\", \"telefono\", \"identidad\" FROM \"autos\".\"contactos\" AS \"contactos\" ORDER BY \"contactos\".\"cargo\";","level":"info"}
-{"message":"3c58b1fb-d612-4819-95ce-767c8bbac7c4[ERROR]->Se presentó un error al tratar de obtener la informacion de la base de datos","level":"error"}
-{"message":"e5225821-60a3-4436-b0a6-6666761030f3[SQL]Executing (default): SELECT \"idcontacto\", \"Persona\", \"cargo\", \"telefono\", \"identidad\" FROM \"autos\".\"contactos\" AS \"contactos\" ORDER BY \"contactos\".\"cargo\";","level":"info"}
-{"message":"e5225821-60a3-4436-b0a6-6666761030f3[ERROR]->Se presentó un error al tratar de obtener la informacion de la base de datos","level":"error"}

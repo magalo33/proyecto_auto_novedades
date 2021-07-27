@@ -1,3 +1,9 @@
+export interface Personas{
+  error: number,
+  msg: string,
+  personas: Persona[]
+}
+
 export interface Persona{
     idpersona:number,
     cedula:string,
@@ -6,5 +12,7 @@ export interface Persona{
     telefono:string,
     email:string,
     clave:string,
+    createdAt:string,
+    updatedAt:string,
     activo: boolean
   }

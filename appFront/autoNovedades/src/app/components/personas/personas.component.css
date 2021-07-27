@@ -1,0 +1,42 @@
+.fila-superior-tabla-persona{    
+    border-width: 5px;
+    border-color: white;
+    color: white;
+    background-color: #23233c;
+    margin: 1px;
+}
+
+.fila-lateral-tabla-persona{    
+    border-width: 5px;
+    border-color: white;
+    color: white;
+    background-color: #23233c;
+    font-size: 1em;
+    width: 110px;
+}
+
+.txt-titulo-tabla-persona{    
+    font-family: 'STIX Two Math', serif; 
+       font-size: 1em;
+    }
+
+
+
+.lweb{
+    display:inline-table;
+}
+
+.lmobil{
+    display: none ;
+}
+
+
+@media (max-width:1000px) {
+    .lweb{
+        display: none !important;
+    }
+
+    .lmobil{
+        display:inline-table !important;
+    }
+}    

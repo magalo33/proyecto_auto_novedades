@@ -30,8 +30,8 @@ const Persona = db.define('personas',{
     }
 },
 {
-    schema: 'autos',
-    timestamps: false
+    schema: 'autos'/*,
+    timestamps: false*/
 });
 
 export default Persona;

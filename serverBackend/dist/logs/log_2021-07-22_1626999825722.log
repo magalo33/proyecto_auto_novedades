@@ -1,5 +1,0 @@
-{"message":"You have successfully started working with winston and morgan","level":"info"}
-{"message":"e891ef7e-8101-42a1-8720-ea50862a5ba9[SQL]Executing (default): SELECT \"idcontacto\", \"idpersona\", \"cargo\", \"telefono\", \"identidad\" FROM \"autos\".\"contactos\" AS \"contactos\" ORDER BY \"contactos\".\"cargo\";","level":"info"}
-{"message":"e891ef7e-8101-42a1-8720-ea50862a5ba9[OK]->consulta exitosa","level":"info"}
-{"message":"78211f88-1681-48da-999b-cf514c78d8fa[SQL]Executing (default): SELECT \"idcontacto\", \"idpersona\", \"cargo\", \"telefono\", \"identidad\" FROM \"autos\".\"contactos\" AS \"contactos\" ORDER BY \"contactos\".\"cargo\";","level":"info"}
-{"message":"78211f88-1681-48da-999b-cf514c78d8fa[OK]->consulta exitosa","level":"info"}

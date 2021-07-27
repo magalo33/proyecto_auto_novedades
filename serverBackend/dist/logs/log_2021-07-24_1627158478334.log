@@ -1,3 +1,0 @@
-{"message":"You have successfully started working with winston and morgan","level":"info"}
-{"message":"02431dd5-97ac-489a-ac2c-f041c7bbc754[METODO->validateMessage][BODY]{\"data\":{\"persona\":{\"idpersona\":5,\"activo\":false}},\"expDate\":\"2021-07-24 15:26:06\"}","level":"info"}
-{"message":"02431dd5-97ac-489a-ac2c-f041c7bbc754[METODO->actualizarEstadoPersona][ERROR]->Se presentó un arror al tratar de obtener el objeto persona","level":"error"}

@@ -1,5 +1,0 @@
-{"message":"You have successfully started working with winston and morgan","level":"info"}
-{"message":"c116dc91-1c86-4c8c-b16a-536c793cf782[METODO->validateMessage][BODY]{\"data\":{\"idpersona\":5,\"activo\":false},\"expDate\":\"2021-07-24 14:45:48\"}","level":"info"}
-{"message":"c116dc91-1c86-4c8c-b16a-536c793cf782[METODO->actualizarEstadoPersona][METODO->getPersonadesdeBody][ERROR]->TypeError: Cannot read property 'idpersona' of undefined","level":"error"}
-{"message":"c116dc91-1c86-4c8c-b16a-536c793cf782[METODO->actualizarEstadoPersona][ERROR]->Se presentó un arror al tratar de obtener el objeto persona","level":"error"}
-{"message":"c116dc91-1c86-4c8c-b16a-536c793cf782[METODO->actualizarEstadoPersona][OK]->actualizacion exitosa","level":"info"}

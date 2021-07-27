@@ -1,5 +1,0 @@
-{"message":"You have successfully started working with winston and morgan","level":"info"}
-{"message":"dacbadc7-e267-4b30-b49b-a581b86167b2[METODO->validateMessage][BODY]{\"data\":{\"idpersona\":5,\"activo\":false},\"expDate\":\"2021-07-24 14:45:48\"}","level":"info"}
-{"message":"dacbadc7-e267-4b30-b49b-a581b86167b2[METODO->actualizarEstadoPersona][METODO->getPersonadesdeBody][ERROR]->TypeError: Cannot read property 'idpersona' of undefined","level":"error"}
-{"message":"dacbadc7-e267-4b30-b49b-a581b86167b2[METODO->actualizarEstadoPersona][SQL]Executing (default): UPDATE \"autos\".\"personas\" SET \"activo\"=$1 WHERE \"idpersona\" = $2","level":"info"}
-{"message":"dacbadc7-e267-4b30-b49b-a581b86167b2[METODO->actualizarEstadoPersona][OK]->actualizacion exitosa","level":"info"}

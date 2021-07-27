@@ -57,11 +57,6 @@ font-family: 'STIX Two Math', serif;
            color: #23233c;
         }
 
-    .adjust-right{
-        float: right;
-    }
-
-
 @media (max-width:300px) {
 
     .fila-lateral-tabla{    

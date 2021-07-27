@@ -41,5 +41,10 @@ getCedula():string{
   return this.cedula;
 }
 
+toTimestamp(strDate:string){
+  var datum = Date.parse(strDate);
+  return datum/1000;
+}
+
 
 }

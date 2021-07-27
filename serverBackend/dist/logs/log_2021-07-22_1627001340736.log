@@ -1,2 +1,0 @@
-{"message":"You have successfully started working with winston and morgan","level":"info"}
-{"message":"b4ef39c7-6c1d-434c-803f-dc9d614d1438[ERROR]->Se presentó un error al tratar de obtener la informacion de la base de datos \nSequelizeEagerLoadingError: personas is associated to contactos using an alias. You've included an alias (Persona), but it does not match the alias(es) defined in your association (Personas).","level":"error"}

@@ -1,4 +1,0 @@
-{"message":"You have successfully started working with winston and morgan","level":"info"}
-{"message":"0[METODO->validateLoggin][ERROR]->TypeError: Cannot read property 'toString' of undefined","level":"error"}
-{"message":"5add8f09-4d2d-4c7f-a3f2-0235fc6d025f[METODO->validarLogin][ERROR]->No se recibio el token de validación y/o el origen de la aplicación.","level":"error"}
-{"message":"0359959a-bc23-4bf1-af5a-124565bd10e4[METODO->validarLogin][OK]->consulta exitosa","level":"info"}

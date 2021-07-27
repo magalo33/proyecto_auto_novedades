@@ -1,7 +1,0 @@
-{"message":"You have successfully started working with winston and morgan","level":"info"}
-{"message":"dc4153dc-02c7-41b3-907d-ee2a8701a7a3[SQL]Executing (default): SELECT \"idrol\", \"descripcion\" FROM \"autos\".\"roles\" AS \"roles\" ORDER BY \"roles\".\"cargo\";","level":"info"}
-{"message":"dc4153dc-02c7-41b3-907d-ee2a8701a7a3[ERROR]->Se presentó un error al tratar de obtener la informacion de la base de datos","level":"error"}
-{"message":"7ea9c41b-59db-49c3-9597-11a07d3fd812[SQL]Executing (default): SELECT \"idrol\", \"descripcion\" FROM \"autos\".\"roles\" AS \"roles\" ORDER BY \"roles\".\"cargo\";","level":"info"}
-{"message":"7ea9c41b-59db-49c3-9597-11a07d3fd812[ERROR]->Se presentó un error al tratar de obtener la informacion de la base de datos","level":"error"}
-{"message":"ab59ab83-4c04-4d0d-9453-b3626f199139[SQL]Executing (default): SELECT \"idrol\", \"descripcion\" FROM \"autos\".\"roles\" AS \"roles\" ORDER BY \"roles\".\"cargo\";","level":"info"}
-{"message":"ab59ab83-4c04-4d0d-9453-b3626f199139[ERROR]->Se presentó un error al tratar de obtener la informacion de la base de datos","level":"error"}

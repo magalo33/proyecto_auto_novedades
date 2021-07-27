@@ -1,4 +1,0 @@
-{"message":"You have successfully started working with winston and morgan","level":"info"}
-{"message":"5329ce3c-a094-422a-8f64-590b3c91e8b6[METODO->validateMessage][BODY]{\"data\":{\"idrol\":\"1\",\"cedula\":\"88230510\",\"password\":\"123456789\"},\"expDate\":\"2021-07-23 15:34:14\"}","level":"info"}
-{"message":"5329ce3c-a094-422a-8f64-590b3c91e8b6[METODO->getPersonaPorEmail][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"email\" ILIKE '%undefined%';","level":"info"}
-{"message":"5329ce3c-a094-422a-8f64-590b3c91e8b6[METODO->getPersonaPorEmail][ERROR]->No se encontraron datos con ese criterio de busqueda","level":"error"}

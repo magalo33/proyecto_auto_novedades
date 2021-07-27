@@ -44,7 +44,7 @@ export class EntidadesComponent implements OnInit {
             this.entidades = resp.entidades;
             this.entidades.forEach((item:EntidadInterface)=>{          
               
-              let unix_timestamp = this.toTimestamp(item.createdAt);
+              let unix_timestamp = this.utilitiesService.toTimestamp(item.createdAt);
               var date = new Date(unix_timestamp * 1000);    
               let anio = date.getFullYear();
               let mes = (date.getMonth()+1).toString();
@@ -56,7 +56,7 @@ export class EntidadesComponent implements OnInit {
                 dia = '0'+dia;
               }
               item.createdAt = anio+"-"+mes+"-"+dia;
-              let unix_timestamp2 = this.toTimestamp(item.updatedAt);
+              let unix_timestamp2 = this.utilitiesService.toTimestamp(item.updatedAt);
               var date2 = new Date(unix_timestamp2 * 1000);    
               let anio2 = date2.getFullYear();
               let mes2 = (date2.getMonth()+1).toString();
@@ -84,10 +84,6 @@ export class EntidadesComponent implements OnInit {
   }
 
 
-  toTimestamp(strDate:string){
-    var datum = Date.parse(strDate);
-    return datum/1000;
- }
 
 
  editarItem(entidad:EntidadInterface){

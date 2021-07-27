@@ -1,3 +1,0 @@
-{"message":"You have successfully started working with winston and morgan","level":"info"}
-{"message":"d5b00904-97b4-4fec-82a0-40f3a7a1a473[SQL]Executing (default): SELECT \"idcontacto\", \"idpersona\", \"cargo\", \"telefono\", \"identidad\" FROM \"autos\".\"contactos\" AS \"contactos\" ORDER BY \"contactos\".\"cargo\";","level":"info"}
-{"message":"d5b00904-97b4-4fec-82a0-40f3a7a1a473[OK]->consulta exitosa","level":"info"}

@@ -1,2 +1,0 @@
-{"message":"You have successfully started working with winston and morgan","level":"info"}
-{"message":"07ff99c1-5199-4a5c-b6e6-9367cad0daf7[ERROR]->Se presentó un error al tratar de obtener la informacion de la base de datos \nSequelizeEagerLoadingError: personas is not associated to contactos!","level":"error"}

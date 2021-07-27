@@ -1,4 +1,0 @@
-{"message":"You have successfully started working with winston and morgan","level":"info"}
-{"message":"14e5ccc0-ab48-422d-8467-f45ed270c02a[METODO->validateMessage][ERROR]->Error en la validacion del token","level":"error"}
-{"message":"14e5ccc0-ab48-422d-8467-f45ed270c02a[METODO->validateMessage][ERROR]->Error: Malformed UTF-8 data","level":"error"}
-{"message":"14e5ccc0-ab48-422d-8467-f45ed270c02a[METODO->getDepartamentos][ERROR]->Error en la validacion del token","level":"error"}

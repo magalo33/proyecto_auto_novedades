@@ -1,4 +1,0 @@
-{"message":"You have successfully started working with winston and morgan","level":"info"}
-{"message":"516b507a-e7d3-4257-be3c-de2079276938[METODO->validateMessage][BODY]{\"data\":{\"idpersona\":\"1\",\"activo\":true},\"expDate\":\"2021-07-23 17:17:04\"}","level":"info"}
-{"message":"516b507a-e7d3-4257-be3c-de2079276938[METODO->getPersona][SQL]Executing (default): SELECT \"idpersona\", \"cedula\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"clave\", \"activo\" FROM \"autos\".\"personas\" AS \"personas\" WHERE \"personas\".\"idpersona\" = 'actualizarestado';","level":"info"}
-{"message":"516b507a-e7d3-4257-be3c-de2079276938[METODO->getPersona][ERROR]->Se presentó un error al tratar de obtener la informacion de la base de datos","level":"error"}

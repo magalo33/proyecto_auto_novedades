@@ -1,8 +1,0 @@
-{"message":"You have successfully started working with winston and morgan","level":"info"}
-{"message":"e7885172-e233-4802-937c-164a4e0ca9f4[METODO->validateMessage][BODY]{\"data\":{\"requestLogin\":{\"idrol\":1,\"cedula\":\"88230510\",\"password\":\"123456789\"}},\"expDate\":\"2021-07-24 18:57:56\"}","level":"info"}
-{"message":"e7885172-e233-4802-937c-164a4e0ca9f4[METODO->validarLogin][OK]->consulta exitosa","level":"info"}
-{"message":"05a22429-6db8-4e8b-a24e-276764a787e7[METODO->validateMessage][BODY]{\"data\":{\"requestLogin\":{\"idrol\":2,\"cedula\":\"88230510\",\"password\":\"123456789\"}},\"expDate\":\"2021-07-24 18:57:56\"}","level":"info"}
-{"message":"05a22429-6db8-4e8b-a24e-276764a787e7[METODO->validateMessage][REQUEST]{\"data\":{\"requestLogin\":{\"idrol\":1,\"cedula\":\"88230510\",\"password\":\"123456789\"}},\"expDate\":\"2021-07-24 18:57:56\"}","level":"info"}
-{"message":"05a22429-6db8-4e8b-a24e-276764a787e7[METODO->validarLogin][ERROR]->El body no es valido","level":"error"}
-{"message":"42986f6f-da1a-4ce7-8c99-80d0486f4d9b[METODO->validateMessage][BODY]{\"data\":{\"requestLogin\":{\"idrol\":1,\"cedula\":\"88230510\",\"password\":\"123456789\"}},\"expDate\":\"2021-07-24 18:57:56\"}","level":"info"}
-{"message":"42986f6f-da1a-4ce7-8c99-80d0486f4d9b[METODO->validarLogin][OK]->consulta exitosa","level":"info"}

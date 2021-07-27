@@ -1,7 +1,0 @@
-{"message":"You have successfully started working with winston and morgan","level":"info"}
-{"message":"38456635-0465-430e-bd5e-fc573f203653[METODO->validateMessage][BODY]{\"data\":{\"requestLogin\":{\"idrol\":1,\"cedula\":\"88230510\",\"clave\":\"123456789\"}},\"expDate\":\"2021-07-25 12:40:01\"}","level":"info"}
-{"message":"38456635-0465-430e-bd5e-fc573f203653[METODO->getEntidades][SQL]Executing (default): SELECT \"identidad\", \"nit\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"activo\", \"createdAt\", \"updatedAt\" FROM \"autos\".\"entidades\" AS \"entidades\" WHERE \"entidades\".\"activo\" = true ORDER BY \"entidades\".\"nombre\";","level":"info"}
-{"message":"38456635-0465-430e-bd5e-fc573f203653[METODO->getEntidades][OK]->consulta exitosa","level":"info"}
-{"message":"317b1eb2-009f-42db-b197-9c1d85a728a7[METODO->validateMessage][BODY]{\"data\":{\"requestLogin\":{\"idrol\":1,\"cedula\":\"88230510\",\"clave\":\"123456789\"}},\"expDate\":\"2021-07-25 12:40:01\"}","level":"info"}
-{"message":"317b1eb2-009f-42db-b197-9c1d85a728a7[METODO->getEntidades][SQL]Executing (default): SELECT \"identidad\", \"nit\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"activo\", \"createdAt\", \"updatedAt\" FROM \"autos\".\"entidades\" AS \"entidades\" WHERE \"entidades\".\"activo\" = true ORDER BY \"entidades\".\"nombre\";","level":"info"}
-{"message":"317b1eb2-009f-42db-b197-9c1d85a728a7[METODO->getEntidades][OK]->consulta exitosa","level":"info"}

@@ -1,9 +1,0 @@
-{"message":"You have successfully started working with winston and morgan","level":"info"}
-{"message":"cd299fbd-a45d-446d-960d-379bf0b72331[METODO->validateMessage][BODY]{\"data\":{\"idpersona\":5,\"activo\":false},\"expDate\":\"2021-07-24 14:45:48\"}","level":"info"}
-{"message":"cd299fbd-a45d-446d-960d-379bf0b72331[METODO->actualizarEstadoPersona][METODO->getPersonadesdeBody][ERROR]->TypeError: Cannot read property 'idpersona' of undefined","level":"error"}
-{"message":"cd299fbd-a45d-446d-960d-379bf0b72331[METODO->actualizarEstadoPersona][SQL]Executing (default): UPDATE \"autos\".\"personas\" SET \"activo\"=$1 WHERE \"idpersona\" = $2","level":"info"}
-{"message":"cd299fbd-a45d-446d-960d-379bf0b72331[METODO->actualizarEstadoPersona][OK]->actualizacion exitosa","level":"info"}
-{"message":"09113342-4733-4cef-9a92-490b6b229bf4[METODO->validateMessage][BODY]{\"data\":{\"idpersona\":5,\"activo\":false},\"expDate\":\"2021-07-24 14:45:48\"}","level":"info"}
-{"message":"09113342-4733-4cef-9a92-490b6b229bf4[METODO->actualizarEstadoPersona][METODO->getPersonadesdeBody][ERROR]->TypeError: Cannot read property 'idpersona' of undefined","level":"error"}
-{"message":"09113342-4733-4cef-9a92-490b6b229bf4[METODO->actualizarEstadoPersona][SQL]Executing (default): UPDATE \"autos\".\"personas\" SET \"activo\"=$1 WHERE \"idpersona\" = $2","level":"info"}
-{"message":"09113342-4733-4cef-9a92-490b6b229bf4[METODO->actualizarEstadoPersona][OK]->actualizacion exitosa","level":"info"}

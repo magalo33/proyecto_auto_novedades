@@ -1,9 +1,0 @@
-{"message":"You have successfully started working with winston and morgan","level":"info"}
-{"message":"3778af68-c0c0-4bca-8556-7ab53675d2e1[SQL]Executing (default): SELECT \"idcontacto\", \"idpersona\", \"cargo\", \"telefono\", \"identidad\" FROM \"autos\".\"contactos\" AS \"contactos\" ORDER BY \"contactos\".\"cargo\";","level":"info"}
-{"message":"3778af68-c0c0-4bca-8556-7ab53675d2e1[OK]->consulta exitosa","level":"info"}
-{"message":"6a2ea9da-917d-4045-9572-6ccd6e7c1239[SQL]Executing (default): SELECT \"idcontacto\", \"idpersona\", \"cargo\", \"telefono\", \"identidad\" FROM \"autos\".\"contactos\" AS \"contactos\" ORDER BY \"contactos\".\"cargo\";","level":"info"}
-{"message":"6a2ea9da-917d-4045-9572-6ccd6e7c1239[OK]->consulta exitosa","level":"info"}
-{"message":"de48a307-eab4-4e78-a243-857f966eb927[SQL]Executing (default): SELECT \"idcontacto\", \"idpersona\", \"cargo\", \"telefono\", \"identidad\" FROM \"autos\".\"contactos\" AS \"contactos\" ORDER BY \"contactos\".\"cargo\";","level":"info"}
-{"message":"de48a307-eab4-4e78-a243-857f966eb927[OK]->consulta exitosa","level":"info"}
-{"message":"372a22e0-37ec-4094-a871-513a51f3a333[SQL]Executing (default): SELECT \"idcontacto\", \"idpersona\", \"cargo\", \"telefono\", \"identidad\" FROM \"autos\".\"contactos\" AS \"contactos\" ORDER BY \"contactos\".\"cargo\";","level":"info"}
-{"message":"372a22e0-37ec-4094-a871-513a51f3a333[OK]->consulta exitosa","level":"info"}

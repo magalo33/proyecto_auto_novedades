@@ -10,6 +10,7 @@ import { SuperadminComponent } from './components/superadmin/superadmin.componen
 import { EntidadesComponent } from './components/entidades/entidades.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PersonasComponent } from './components/personas/personas.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     LoginComponent,
     SuperadminComponent,
     EntidadesComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    PersonasComponent
   ],
   imports: [
     BrowserModule,

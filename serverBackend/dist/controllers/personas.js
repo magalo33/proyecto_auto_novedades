@@ -296,95 +296,106 @@ const actualizarPersona = (req, resp) => __awaiter(void 0, void 0, void 0, funct
     uuid = uuid + "[METODO->actualizarEstadoPersona]";
     let persona = utilities.getPersonaInterface();
     let actualizado = false;
+    let arrayRolesxpersona = new Array();
+    let rolesXpersona = {
+        error: errorRet,
+        msg: msg,
+        rolesxpersona: arrayRolesxpersona
+    };
     if (msg == "Ok") {
         msg = 'No se realizo la actualización. Verifique el parametro de control';
-        try {
-            persona = utilities.getPersonadesdeBody(req.headers, uuid);
-            if (persona.idpersona > 0) {
-                if (item == 'estado') {
-                    persona = (yield persona_1.default.update({ activo: persona.activo }, { where: { idpersona: persona.idpersona }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
-                    actualizado = true;
-                }
-                else {
-                    if (item == 'nombre') {
-                        persona = (yield persona_1.default.update({ nombre: persona.nombre }, { where: { idpersona: persona.idpersona }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
+        rolesXpersona = yield utilities.validarLigin(req.headers, uuid);
+        errorRet = rolesXpersona.error;
+        msg = rolesXpersona.msg;
+        if (errorRet == 0) {
+            try {
+                persona = utilities.getPersonadesdeBody(req.headers, uuid);
+                if (persona.idpersona > 0) {
+                    if (item == 'estado') {
+                        persona = (yield persona_1.default.update({ activo: persona.activo }, { where: { idpersona: persona.idpersona }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
                         actualizado = true;
                     }
                     else {
-                        if (item == 'direccion') {
-                            persona = (yield persona_1.default.update({ direccion: persona.direccion }, { where: { idpersona: persona.idpersona }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
+                        if (item == 'nombre') {
+                            persona = (yield persona_1.default.update({ nombre: persona.nombre }, { where: { idpersona: persona.idpersona }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
                             actualizado = true;
                         }
                         else {
-                            if (item == 'telefono') {
-                                persona = (yield persona_1.default.update({ telefono: persona.telefono }, { where: { idpersona: persona.idpersona }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
+                            if (item == 'direccion') {
+                                persona = (yield persona_1.default.update({ direccion: persona.direccion }, { where: { idpersona: persona.idpersona }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
                                 actualizado = true;
                             }
                             else {
-                                if (item == 'email') {
-                                    const Op = sequelize_1.default.Op;
-                                    let consultaPorEmail = yield persona_1.default.findAll({ where: { email: { [Op.iLike]: '%' + persona.email + '%' } }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
-                                    if (consultaPorEmail.length > 0) {
-                                        errorRet = 1;
-                                        msg = 'Ya existe una persona con este email';
-                                        winston.error(uuid + "[ERROR]->" + msg);
-                                    }
-                                    else {
-                                        persona = (yield persona_1.default.update({ email: persona.email }, { where: { idpersona: persona.idpersona }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
-                                        actualizado = true;
-                                    }
+                                if (item == 'telefono') {
+                                    persona = (yield persona_1.default.update({ telefono: persona.telefono }, { where: { idpersona: persona.idpersona }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
+                                    actualizado = true;
                                 }
                                 else {
-                                    if (item == 'cedula') {
-                                        let consultaPorCedula = yield persona_1.default.findAll({ where: { cedula: persona.cedula }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
-                                        if (consultaPorCedula.length > 0) {
+                                    if (item == 'email') {
+                                        const Op = sequelize_1.default.Op;
+                                        let consultaPorEmail = yield persona_1.default.findAll({ where: { email: { [Op.iLike]: '%' + persona.email + '%' } }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
+                                        if (consultaPorEmail.length > 0) {
                                             errorRet = 1;
-                                            msg = 'Ya existe una persona con esta cédula';
+                                            msg = 'Ya existe una persona con este email';
                                             winston.error(uuid + "[ERROR]->" + msg);
                                         }
                                         else {
-                                            persona = (yield persona_1.default.update({ cedula: persona.cedula }, { where: { idpersona: persona.idpersona }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
+                                            persona = (yield persona_1.default.update({ email: persona.email }, { where: { idpersona: persona.idpersona }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
                                             actualizado = true;
                                         }
                                     }
                                     else {
-                                        if (item == 'clave') {
-                                            persona = (yield persona_1.default.update({ clave: persona.clave }, { where: { idpersona: persona.idpersona }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
-                                            actualizado = true;
+                                        if (item == 'cedula') {
+                                            let consultaPorCedula = yield persona_1.default.findAll({ where: { cedula: persona.cedula }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
+                                            if (consultaPorCedula.length > 0) {
+                                                errorRet = 1;
+                                                msg = 'Ya existe una persona con esta cédula';
+                                                winston.error(uuid + "[ERROR]->" + msg);
+                                            }
+                                            else {
+                                                persona = (yield persona_1.default.update({ cedula: persona.cedula }, { where: { idpersona: persona.idpersona }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
+                                                actualizado = true;
+                                            }
                                         }
                                         else {
-                                            if (item == 'todo') {
-                                                persona = (yield persona_1.default.upsert(persona, { logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
+                                            if (item == 'clave') {
+                                                persona = (yield persona_1.default.update({ clave: persona.clave }, { where: { idpersona: persona.idpersona }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
                                                 actualizado = true;
                                             }
                                             else {
-                                                if (item == 'nuevo') {
-                                                    const Op = sequelize_1.default.Op;
-                                                    let consultaPorEmail = yield persona_1.default.findAll({ where: { email: { [Op.iLike]: '%' + persona.email + '%' } }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
-                                                    if (consultaPorEmail.length > 0) {
-                                                        errorRet = 1;
-                                                        msg = 'Ya existe una persona con este email';
-                                                        winston.error(uuid + "[ERROR]->" + msg);
-                                                    }
-                                                    else {
-                                                        let consultaPorCedula = yield persona_1.default.findAll({ where: { cedula: persona.cedula }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
-                                                        if (consultaPorCedula.length > 0) {
+                                                if (item == 'todo') {
+                                                    persona = (yield persona_1.default.upsert(persona, { logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
+                                                    actualizado = true;
+                                                }
+                                                else {
+                                                    if (item == 'nuevo') {
+                                                        const Op = sequelize_1.default.Op;
+                                                        let consultaPorEmail = yield persona_1.default.findAll({ where: { email: { [Op.iLike]: '%' + persona.email + '%' } }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
+                                                        if (consultaPorEmail.length > 0) {
                                                             errorRet = 1;
-                                                            msg = 'Ya existe una persona con esta cédula';
+                                                            msg = 'Ya existe una persona con este email';
                                                             winston.error(uuid + "[ERROR]->" + msg);
                                                         }
                                                         else {
-                                                            persona = (yield persona_1.default.create({
-                                                                cedula: persona.cedula,
-                                                                nombre: persona.nombre,
-                                                                direccion: persona.direccion,
-                                                                telefono: persona.telefono,
-                                                                email: persona.email,
-                                                                clave: persona.clave,
-                                                                activo: false
-                                                            }, { logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
-                                                            msg = 'Registro de nueva persona ok';
-                                                            actualizado = true;
+                                                            let consultaPorCedula = yield persona_1.default.findAll({ where: { cedula: persona.cedula }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
+                                                            if (consultaPorCedula.length > 0) {
+                                                                errorRet = 1;
+                                                                msg = 'Ya existe una persona con esta cédula';
+                                                                winston.error(uuid + "[ERROR]->" + msg);
+                                                            }
+                                                            else {
+                                                                persona = (yield persona_1.default.create({
+                                                                    cedula: persona.cedula,
+                                                                    nombre: persona.nombre,
+                                                                    direccion: persona.direccion,
+                                                                    telefono: persona.telefono,
+                                                                    email: persona.email,
+                                                                    clave: persona.clave,
+                                                                    activo: false
+                                                                }, { logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
+                                                                msg = 'Registro de nueva persona ok';
+                                                                actualizado = true;
+                                                            }
                                                         }
                                                     }
                                                 }
@@ -395,58 +406,58 @@ const actualizarPersona = (req, resp) => __awaiter(void 0, void 0, void 0, funct
                             }
                         }
                     }
-                }
-                if (actualizado) {
-                    msg = "actualizacion exitosa";
-                    winston.info(uuid + "[OK]->" + msg);
-                }
-                else {
-                    errorRet = 1;
-                    winston.error(uuid + "[ERROR]->" + msg);
-                }
-            }
-            else {
-                if (item == 'nuevo') {
-                    const Op = sequelize_1.default.Op;
-                    let consultaPorEmail = yield persona_1.default.findAll({ where: { email: { [Op.iLike]: '%' + persona.email + '%' } }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
-                    if (consultaPorEmail.length > 0) {
-                        errorRet = 1;
-                        msg = 'Ya existe una persona con este email';
-                        winston.error(uuid + "[ERROR]->" + msg);
+                    if (actualizado) {
+                        msg = "actualizacion exitosa";
+                        winston.info(uuid + "[OK]->" + msg);
                     }
                     else {
-                        let consultaPorCedula = yield persona_1.default.findAll({ where: { cedula: persona.cedula }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
-                        if (consultaPorCedula.length > 0) {
+                        errorRet = 1;
+                        winston.error(uuid + "[ERROR]->" + msg);
+                    }
+                }
+                else {
+                    if (item == 'nuevo') {
+                        const Op = sequelize_1.default.Op;
+                        let consultaPorEmail = yield persona_1.default.findAll({ where: { email: { [Op.iLike]: '%' + persona.email + '%' } }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
+                        if (consultaPorEmail.length > 0) {
                             errorRet = 1;
-                            msg = 'Ya existe una persona con esta cédula';
+                            msg = 'Ya existe una persona con este email';
                             winston.error(uuid + "[ERROR]->" + msg);
                         }
                         else {
-                            persona = (yield persona_1.default.create({
-                                cedula: persona.cedula,
-                                nombre: persona.nombre,
-                                direccion: persona.direccion,
-                                telefono: persona.telefono,
-                                email: persona.email,
-                                clave: persona.clave,
-                                activo: false
-                            }, { logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
-                            msg = 'Registro de nueva persona ok';
-                            actualizado = true;
+                            let consultaPorCedula = yield persona_1.default.findAll({ where: { cedula: persona.cedula }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
+                            if (consultaPorCedula.length > 0) {
+                                errorRet = 1;
+                                msg = 'Ya existe una persona con esta cédula';
+                                winston.error(uuid + "[ERROR]->" + msg);
+                            }
+                            else {
+                                persona = (yield persona_1.default.create({
+                                    cedula: persona.cedula,
+                                    nombre: persona.nombre,
+                                    direccion: persona.direccion,
+                                    telefono: persona.telefono,
+                                    email: persona.email,
+                                    clave: persona.clave,
+                                    activo: false
+                                }, { logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
+                                msg = 'Registro de nueva persona ok';
+                                actualizado = true;
+                            }
                         }
                     }
-                }
-                else {
-                    errorRet = 1;
-                    msg = 'Se presentó un arror al tratar de obtener el objeto persona';
-                    winston.error(uuid + "[ERROR]->" + msg);
+                    else {
+                        errorRet = 1;
+                        msg = 'Se presentó un arror al tratar de obtener el objeto persona';
+                        winston.error(uuid + "[ERROR]->" + msg);
+                    }
                 }
             }
-        }
-        catch (error) {
-            errorRet = 1;
-            msg = 'Se presentó un error al tratar de obtener la informacion de la base de datos ' + error;
-            winston.error(uuid + "[ERROR]->" + msg);
+            catch (error) {
+                errorRet = 1;
+                msg = 'Se presentó un error al tratar de obtener la informacion de la base de datos ' + error;
+                winston.error(uuid + "[ERROR]->" + msg);
+            }
         }
     }
     else {

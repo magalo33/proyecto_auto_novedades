@@ -33,8 +33,8 @@ const Persona = connection_1.default.define('personas', {
         type: sequelize_1.DataTypes.BOOLEAN
     }
 }, {
-    schema: 'autos',
-    timestamps: false
+    schema: 'autos' /*,
+    timestamps: false*/
 });
 exports.default = Persona;
 //# sourceMappingURL=persona.js.map

@@ -1,4 +1,0 @@
-{"message":"You have successfully started working with winston and morgan","level":"info"}
-{"message":"0430db25-e19d-489c-a21b-0c53987d7e47[METODO->validateMessage][BODY]{\"data\":{\"idpersona\":1,\"activo\":false},\"expDate\":\"2021-07-24 13:06:20\"}","level":"info"}
-{"message":"0430db25-e19d-489c-a21b-0c53987d7e47[METODO->actualizarEstadoPersona][SQL]Executing (default): UPDATE \"autos\".\"personas\" SET \"activo\"=$1 WHERE \"idpersona\" = $2","level":"info"}
-{"message":"0430db25-e19d-489c-a21b-0c53987d7e47[METODO->actualizarEstadoPersona][OK]->actualizacion exitosa","level":"info"}

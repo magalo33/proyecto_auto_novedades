@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { RequestBody } from 'src/app/interfaces/request-body.interface';
 import { Entidades } from '../interfaces/entidades.interface';
 import { GenericResponse } from '../interfaces/genericresponse.interface';
+import { Personas } from '../interfaces/persona.interface';
 
 const base_url = environment.base_url;
 
@@ -44,24 +45,42 @@ export class BackendService {
   }
 
 
+  /*GESTION ENTIDADES*/
   public getEntidades(body: RequestBody, token: string): Observable<Entidades> {
     this.token = token;
     const url = `${base_url}/v1/entidades`;
     return this.http.post<Entidades>(url, body, this.headers);
   }
 
-
   public editarEntidad(body: any, token: string): Observable<GenericResponse> {
     this.token = token;
     const url = `${base_url}/v1/entidades/actualizar/todo`;
     return this.http.post<GenericResponse>(url, body, this.headers);
   }
-
-
+  
   public registrarEntidad(body: any, token: string): Observable<GenericResponse> {
     this.token = token;
     const url = `${base_url}/v1/entidades/actualizar/nuevo`;
     return this.http.post<GenericResponse>(url, body, this.headers);
   }
+
+  /*GESTION PERSONAS*/
+  public getPersonas(body: RequestBody, token: string): Observable<Personas> {
+    this.token = token;
+    const url = `${base_url}/v1/personas`;
+    return this.http.post<Personas>(url, body, this.headers);
+  }
+
+  public editarPersona(body: any, token: string): Observable<GenericResponse> {
+    this.token = token;
+    const url = `${base_url}/v1/personas/actualizar/todo`;
+    return this.http.post<GenericResponse>(url, body, this.headers);
+  }
+
+  public registrarPersona(body: any, token: string): Observable<GenericResponse> {
+    this.token = token;
+    const url = `${base_url}/v1/personas/actualizar/nuevo`;
+    return this.http.post<GenericResponse>(url, body, this.headers);
+  }  
   
 }

@@ -1,0 +1,169 @@
+<div class="container">
+
+    <div class="mt-25px w-100">
+        <button class="btn btn-primary background-azul-oscuro adjust-right" (click)="crearNuevaPersona()">NUEVA PERSONA</button>
+    </div>
+    
+    <div class='lweb w-100'>
+        <table class="mt-25px table table-striped">
+            <thead>
+                <tr class="fila-superior-tabla-persona">
+                    <th scope="col" class="txt-titulo-tabla-persona">CÉDULA</th>
+                    <th scope="col" class="txt-titulo-tabla-persona">NOMBRE</th>
+                    <th scope="col" class="txt-titulo-tabla-persona">DIRECCIÓN</th>
+                    <th scope="col" class="txt-titulo-tabla-persona">TELÉFONO</th>
+                    <th scope="col" class="txt-titulo-tabla-persona">EMAIL</th>
+                    <th scope="col" class="txt-titulo-tabla-persona">CRE. EN</th>
+                    <th scope="col" class="txt-titulo-tabla-persona">ACT. EN</th>
+                    <th scope="col" class="txt-titulo-tabla-persona">ESTADO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let persona of personas">
+                    <td class="txt-item">{{persona.cedula}}<span class="adjust-right"  (click)="editarPersona(persona)"><fa-icon [icon]="faEdit"></fa-icon></span></td>   
+                    <td class="txt-item">{{persona.nombre}}</td>   
+                    <td class="txt-item">{{persona.direccion}}</td>   
+                    <td class="txt-item">{{persona.telefono}}</td>   
+                    <td class="txt-item">{{persona.email}}</td>   
+                    <td class="txt-item">{{persona.createdAt}}</td>   
+                    <td class="txt-item">{{persona.updatedAt}}</td>   
+                    <td class="txt-item">{{persona.activo}}</td>   
+                </tr>
+            </tbody>            
+        </table>
+    </div>
+
+
+
+    <div class='lmobil w-100'>
+        <div *ngFor="let persona of personas">
+            <table class="mt-25px table table-striped">
+                <thead>
+                    <tr class="fila-superior-tabla-persona">
+                        <th colspan='2' scope="col" class="txt-titulo-tabla-persona">{{persona.nombre.toUpperCase()}}<span class="adjust-right"  (click)="editarPersona(persona)"><fa-icon [icon]="faEdit"></fa-icon></span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="fila-lateral-tabla-persona">CÉDULA     </td><td class="txt-item">{{persona.cedula}}    </td></tr>   
+                    <tr><td class="fila-lateral-tabla-persona">DIRECCIÓN  </td><td class="txt-item">{{persona.direccion}} </td></tr>
+                    <tr><td class="fila-lateral-tabla-persona">TELÉFONO   </td><td class="txt-item">{{persona.telefono}}  </td></tr>
+                    <tr><td class="fila-lateral-tabla-persona">EMAIL      </td><td class="txt-item">{{persona.email}}     </td></tr>
+                    <tr><td class="fila-lateral-tabla-persona">CRE. EN    </td><td class="txt-item">{{persona.createdAt}} </td></tr>
+                    <tr><td class="fila-lateral-tabla-persona">ACT. EN    </td><td class="txt-item">{{persona.updatedAt}} </td></tr>
+                    <tr><td class="fila-lateral-tabla-persona">ESTADO     </td><td class="txt-item">{{persona.activo}}    </td></tr>
+                </tbody>            
+            </table>
+        </div>
+    </div>
+</div>    
+
+
+
+<!--Model para edición de entidad-->
+<div class="modal fade z-index-1500 modalStyle" id="dialogo1-persona" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="titulo-modal">EDITAR PERSONA</h5>
+            </div>
+            <div class="modal-body" id="modal-editar-persona">
+                <form>  
+                    <div class="form-group row mb5px">
+                        <label for="cedula-persona-editar" class="col-sm-1 col-form-label">Cédula</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="cedula-persona-editar" class="form-control form-control-lg campos2" />
+                        </div>                      
+                        <label for="telefono-persona-editar" class="col-sm-1 col-form-label">Teléfono</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="telefono-persona-editar" class="form-control form-control-lg campos2" />
+                        </div>   
+                    </div>
+                    <div class="form-group row mb5px">
+                        <label for="nombre-persona-editar" class="col-sm-1 col-form-label">Nombre</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="nombre-persona-editar" class="form-control form-control-lg campos2" />
+                        </div>       
+                        <label for="email-persona-editar" class="col-sm-1 col-form-label">Email</label>
+                        <div class="col-sm-5">
+                            <input type="email" id="email-persona-editar" class="form-control form-control-lg campos2" />
+                        </div>  
+                    </div>
+                    <div class="form-group row mb5px">
+                        <label for="direccion-persona-editar" class="col-sm-1 col-form-label">Dirección</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="direccion-persona-editar" class="form-control form-control-lg campos2" />
+                        </div>              
+                        <label for="activo-persona-editar" class="col-sm-1 col-form-label">Estado</label>
+                        <div class="col-sm-5">
+                            <select class="select arrow form-control my-0 mr-sm-2 campos2" name="activo-persona-editar" id="activo-persona-editar"  required>
+                                <option value=1>ACTIVO</option>
+                                <option value=2>INACTIVO</option>
+                            </select>
+                        </div>    
+                    </div>
+                    <div class="form-group row mb10px">
+                        <label for="password-persona-editar" class="col-sm-3 col-form-label">Password Super-Admin</label>
+                        <div class="col-sm-3 mb10px">
+                            <input type="password" id="password-persona-editar" class="form-control form-control-lg campos2" />
+                        </div>                      
+                        <div class="col-sm-6">
+                            <button class="btn btn-primary btn-lg btn-block w-100 background-azul-oscuro" type="button"  (click)="edicionPersonaCargado()">EDITAR</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModalPersona()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Model para Creación de persona-->
+<div class="modal fade z-index-1500 modalStyle" id="dialogo2-persona" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" >REGISTRAR PERSONA</h5>
+            </div>
+            <div class="modal-body" id="modal-registro-persona">
+                <form>  
+                    <div class="form-group row mb5px">
+                        <label for="cedula-persona-registrar" class="col-sm-1 col-form-label">Cédula</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="cedula-persona-registrar" class="form-control form-control-lg campos2" />
+                        </div>                      
+                        <label for="telefono-persona-registrar" class="col-sm-1 col-form-label">Teléfono</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="telefono-persona-registrar" class="form-control form-control-lg campos2" />
+                        </div>   
+                    </div>
+                    <div class="form-group row mb5px">
+                        <label for="nombre-persona-registrar" class="col-sm-1 col-form-label">Nombre</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="nombre-persona-registrar" class="form-control form-control-lg campos2" />
+                        </div>       
+                        <label for="email-persona-registrar" class="col-sm-1 col-form-label">Email</label>
+                        <div class="col-sm-5">
+                            <input type="email" id="email-persona-registrar" class="form-control form-control-lg campos2" />
+                        </div>  
+                    </div>
+                    <div class="form-group row mb5px">
+                        <label for="direccion-persona-registrar" class="col-sm-1 col-form-label">Dirección</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="direccion-persona-registrar" class="form-control form-control-lg campos2" />
+                        </div>              
+                        <label for="password-persona-registrar" class="col-sm-3 col-form-label">Password Super-Admin</label>
+                        <div class="col-sm-3 mb10px">
+                            <input type="password" id="password-persona-registrar" class="form-control form-control-lg campos2" />
+                        </div> 
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-lg btn-block background-azul-oscuro"  (click)="registroPersonaCargado()">REGISTRAR</button>
+                <button type="button" class="btn btn-secondary btn-lg btn-block " data-dismiss="modal" (click)="closeModalPersona()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
