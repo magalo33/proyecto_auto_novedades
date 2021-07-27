@@ -1,36 +1,143 @@
-<div calss="container-fluid">
-
-    <div classs="container col-12">
+<div class="container">
 
 
-        <div *ngFor="let entidad of entidades" class="d-flex">
-
-            <div class="col-1"><h6>ID</h6></div>
-            <div class="col-1"><h6>NIT</h6></div>
-            <div class="col-2"><h6>NOMBRE</h6></div>
-            <div class="col-2"><h6>DIRECCIÓN</h6></div>
-            <div class="col-1"><h6>TELEFONO</h6></div>
-            <div class="col-2"><h6>EMAIL</h6></div>
-            <div class="col-1"><h6>CRE. EN</h6></div>
-            <div class="col-1"><h6>ACT. EN</h6></div>
-            <div class="col-1"><h6>ESTADO</h6></div>
-            
-        </div>
-
-        <div *ngFor="let entidad of entidades" class="d-flex">
-
-            <div>{{entidad.identidad}}</div>
-            <div>{{entidad.nit}}</div>
-            <div>{{entidad.nombre}}</div>
-            <div>{{entidad.direccion}}</div>
-            <div>{{entidad.telefono}}</div>
-            <div>{{entidad.email}}</div>
-            <div>{{entidad.createdAt}}</div>
-            <div>{{entidad.updatedAt}}</div>
-            <div>{{entidad.activo}}</div>
-            
-        </div>
-
+    <div class="adjust-right mt-25px">
+        <button class="btn btn-primary background-azul-oscuro" (click)="crearNuevaEntidad()">NUEVA ENTIDAD</button>
     </div>
 
+    <div *ngFor="let entidad of entidades">
+        <table class="mt-25px table table-striped">
+            <thead>
+                <tr class="fila-superior-tabla">
+                    <th colspan='2' scope="col" class="txt-titulo-tabla">{{entidad.nombre.toUpperCase() }}       <span class="adjust-right"  (click)="editarItem(entidad)"><fa-icon [icon]="faEdit"></fa-icon></span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td class="fila-lateral-tabla" >NIT         </td><td class="txt-item">{{entidad.nit}}        </td>   </tr>
+                <tr><td class="fila-lateral-tabla" >DIRECCIÓN   </td><td class="txt-item">{{entidad.direccion}}  </td>   </tr>
+                <tr><td class="fila-lateral-tabla" >TELÉFONO    </td><td class="txt-item">{{entidad.telefono}}   </td>   </tr>
+                <tr><td class="fila-lateral-tabla" >EMAIL       </td><td class="txt-item">{{entidad.email}}      </td>   </tr>
+                <tr><td class="fila-lateral-tabla" >CRE. EN     </td><td class="txt-item">{{entidad.createdAt}}  </td>   </tr>
+                <tr><td class="fila-lateral-tabla" >ACT. EN     </td><td class="txt-item">{{entidad.updatedAt}}  </td>   </tr>
+                <tr><td class="fila-lateral-tabla">ESTADO       </td><td class="txt-item">{{entidad.activo}}     </td>   </tr>
+            </tbody>            
+        </table>
+    </div>
+</div>    
+
+
+<!--Model para edición de entidad-->
+<div class="modal fade z-index-1500 modalStyle" id="dialogo1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="titulo-modal">EDITAR ENTIDAD</h5>
+            </div>
+            <div class="modal-body" id="modal-editar">
+                <form>  
+                    <div class="form-group row mb5px">
+                        <label for="nit-entidad-editar" class="col-sm-1 col-form-label">Nit</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="nit-entidad-editar" class="form-control form-control-lg campos2" />
+                        </div>                      
+                        <label for="telefono-entidad-editar" class="col-sm-1 col-form-label">Teléfono</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="telefono-entidad-editar" class="form-control form-control-lg campos2" />
+                        </div>   
+                    </div>
+                    <div class="form-group row mb5px">
+                        <label for="nombre-entidad-editar" class="col-sm-1 col-form-label">Nombre</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="nombre-entidad-editar" class="form-control form-control-lg campos2" />
+                        </div>       
+                        <label for="email-entidad-editar" class="col-sm-1 col-form-label">Email</label>
+                        <div class="col-sm-5">
+                            <input type="email" id="email-entidad-editar" class="form-control form-control-lg campos2" />
+                        </div>  
+                    </div>
+                    <div class="form-group row mb5px">
+                        <label for="direccion-entidad-editar" class="col-sm-1 col-form-label">Dirección</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="direccion-entidad-editar" class="form-control form-control-lg campos2" />
+                        </div>              
+                        <label for="activo-entidad-editar" class="col-sm-1 col-form-label">Estado</label>
+                        <div class="col-sm-5">
+                            <select class="select arrow form-control my-0 mr-sm-2 campos2" name="activo-entidad-editar" id="activo-entidad-editar"  required>
+                                <option value=1>ACTIVO</option>
+                                <option value=2>INACTIVO</option>
+                            </select>
+                        </div>    
+                    </div>
+                    <div class="form-group row mb10px">
+                        <label for="password-entidad-editar" class="col-sm-3 col-form-label">Password Super-Admin</label>
+                        <div class="col-sm-3 mb10px">
+                            <input type="password" id="password-entidad-editar" class="form-control form-control-lg campos2" />
+                        </div>                      
+                        <div class="col-sm-6">
+                            <button class="btn btn-primary btn-lg btn-block w-100 background-azul-oscuro" type="button"  (click)="edicionEntidadCargado()">EDITAR</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Model para Creación de entidad-->
+<div class="modal fade z-index-1500 modalStyle" id="dialogo2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="titulo-modal">REGISTRAR ENTIDAD</h5>
+            </div>
+            <div class="modal-body" id="registro-entidad">
+                <form>  
+                    <div class="form-group row mb5px">
+                        <label for="nit-entidad-registrar" class="col-sm-1 col-form-label">Nit</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="nit-entidad-registrar" class="form-control form-control-lg campos2" />
+                        </div>                      
+                        <label for="telefono-entidad-registrar" class="col-sm-1 col-form-label">Teléfono</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="telefono-entidad-registrar" class="form-control form-control-lg campos2" />
+                        </div>   
+                    </div>
+                    <div class="form-group row mb5px">
+                        <label for="nombre-entidad-registrar" class="col-sm-1 col-form-label">Nombre</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="nombre-entidad-registrar" class="form-control form-control-lg campos2" />
+                        </div>       
+                        <label for="email-entidad-registrar" class="col-sm-1 col-form-label">Email</label>
+                        <div class="col-sm-5">
+                            <input type="email" id="email-entidad-registrar" class="form-control form-control-lg campos2" />
+                        </div>  
+                    </div>
+                    <div class="form-group row mb5px">
+                        <label for="direccion-entidad-registrar" class="col-sm-1 col-form-label">Dirección</label>
+                        <div class="col-sm-5">
+                            <input type="text" id="direccion-entidad-registrar" class="form-control form-control-lg campos2" />
+                        </div>              
+
+                        <label for="password-entidad-registrar" class="col-sm-3 col-form-label">Password Super-Admin</label>
+                        <div class="col-sm-3 mb10px">
+                            <input type="password" id="password-entidad-registrar" class="form-control form-control-lg campos2" />
+                        </div> 
+                        
+
+
+
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-lg btn-block background-azul-oscuro"  (click)="registroEntidadCargado()">REGISTRAR</button>
+                <button type="button" class="btn btn-secondary btn-lg btn-block " data-dismiss="modal" (click)="closeModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
 </div>

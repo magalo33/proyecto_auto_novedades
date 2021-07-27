@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { RequestBody } from 'src/app/interfaces/request-body.interface';
 import { Entidades } from '../interfaces/entidades.interface';
+import { GenericResponse } from '../interfaces/genericresponse.interface';
 
 const base_url = environment.base_url;
 
@@ -50,5 +51,17 @@ export class BackendService {
   }
 
 
+  public editarEntidad(body: any, token: string): Observable<GenericResponse> {
+    this.token = token;
+    const url = `${base_url}/v1/entidades/actualizar/todo`;
+    return this.http.post<GenericResponse>(url, body, this.headers);
+  }
+
+
+  public registrarEntidad(body: any, token: string): Observable<GenericResponse> {
+    this.token = token;
+    const url = `${base_url}/v1/entidades/actualizar/nuevo`;
+    return this.http.post<GenericResponse>(url, body, this.headers);
+  }
   
 }

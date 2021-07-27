@@ -360,25 +360,8 @@ const actualizarEntidad = (req, resp) => __awaiter(void 0, void 0, void 0, funct
                                         }
                                         else {
                                             if (item == 'todo') {
-                                                const Op = sequelize_1.default.Op;
-                                                let consultaPorEmail = yield entidad_1.default.findAll({ where: { email: { [Op.iLike]: '%' + entidad.email + '%' } }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
-                                                if (consultaPorEmail.length > 0) {
-                                                    errorRet = 1;
-                                                    msg = 'Ya existe una entidad con este email';
-                                                    winston.error(uuid + "[ERROR]->" + msg);
-                                                }
-                                                else {
-                                                    let consultaPorNit = yield entidad_1.default.findAll({ where: { nit: entidad.nit }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then();
-                                                    if (consultaPorNit.length > 0) {
-                                                        errorRet = 1;
-                                                        msg = 'Ya existe una entidad con este nit';
-                                                        winston.error(uuid + "[ERROR]->" + msg);
-                                                    }
-                                                    else {
-                                                        entidad = (yield entidad_1.default.upsert(entidad, { logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
-                                                        actualizado = true;
-                                                    }
-                                                }
+                                                entidad = (yield entidad_1.default.upsert(entidad, { logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
+                                                actualizado = true;
                                             }
                                             else {
                                                 if (item == 'nuevo') {

@@ -3,7 +3,201 @@
     background-color: rgb(241, 241, 241);
 }
 
+.background-azul-oscuro{
+    background-color: #23233c !important;
+}
+
 .mt-25px{
     margin-top: 25px;
 }
+
+.margen-centrado{
+    overflow: auto;
+    margin: auto;
+}
+
+.tabla-centrada{
+    display: table;
+    height:100%;
+ }
+
+
+ .celda-centrada {
+     margin-top: 60%;
+    vertical-align: middle;
+ }
+
+
+ .scrollvertical{
+    overflow: auto;
+    width:90%;
+    height:auto;
+ }
+
+.w90pct{
+    width: 90%;
+}
+
+
+.w10px{
+    width: 10px;   
+}
+
+.w20px{
+    width: 20px;   
+}
+
+.w30px{
+    width: 30px;   
+}
+
+.w40px{
+    width: 40px;   
+}
+
+.w50px{
+    width: 50px;   
+}
+
+.w60px{
+    width: 60px;   
+}
+
+.w70px{
+    width: 70px;   
+}
+
+.w80px{
+    width: 80px;   
+}
+
+.w90px{
+    width: 90px;   
+}
+
+.w100px{
+    width: 100px;   
+}
+
+.w150px{
+    width: 150px;   
+}
+
+.w200px{
+    width: 200px;   
+}
+
+.w250px{
+    width: 250px;   
+}
+
+.w300px{
+    width: 300px;   
+}
+
+.w350px{
+    width: 350px;   
+}
+
+.w400px{
+    width: 400px;   
+}
+
+.w500px{
+    width: 500px;   
+}
+
+.w600px{
+    width: 600px;   
+}
+
+.w700px{
+    width: 700px;   
+}
+
+.w1000px{
+    width: 1000px !important;   
+}
+
+.w2000px{
+    width: 2000px !important;   
+}
+
+.w3000px{
+    width: 3000px !important;   
+}
+
+.w50pct{
+    width: 50%;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #23233c;
+}
+
+::-webkit-scrollbar-track {
+    background: #f6f6f8;
+}
+
+
+
+
+
+.w-80pct{
+    width: 80%;
+}
+
+
+.oculto{
+    height: 20px;
+    visibility: hidden;
+}
+
+.text-align-center {
+   text-align: center;
+   vertical-align: middle;
+ }
+
+.campos{
+   font-size: 1.5em;;
+}
+
+.campos2{
+    font-size: 1em;;
+ }
+
+.adjust-right{
+   float: right;
+}
+
+.mb5px{
+    margin-bottom: 5px;
+}
+
+.mb10px{
+    margin-bottom: 10px;
+}
+
+
+
+@media (max-width: 500px) {
+   .oculto{
+       height: 20px;
+       visibility: visible;
+   }
+}
+
+
+@media (max-width: 900px) {
+    .celda-centrada {
+        margin-top: 5% !important;
+       vertical-align: middle;
+    }
+ }
 

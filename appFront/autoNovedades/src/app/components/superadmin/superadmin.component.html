@@ -1,7 +1,7 @@
 <div class="container-fluid">
 
-    <div class="container mt-25px">
-        <div class="nav">
+    <div class="container mt-25px ">
+          <div class="nav">
             <input type="checkbox" id="nav-check">
             <div class="nav-header">
               <div class="nav-title">
@@ -25,22 +25,17 @@
                     <li><a href="#" target="_blank">Contact</a></li>
                 </ul>
             </div>
-          </div>
+          </div>         
     </div>
 
-    <div class="container">
 
-      <div *ngIf="control==1">
-        <app-entidades></app-entidades>
-      </div>
 
-      <div  *ngIf="control==2">
-        <app-usuarios></app-usuarios>
-      </div>
-      
-
+    <div *ngIf="control==1">
+      <app-entidades></app-entidades> 
+    </div>
+    
+    <div  *ngIf="control==2">
+      <app-usuarios></app-usuarios>
     </div>
 
 </div>
-
-

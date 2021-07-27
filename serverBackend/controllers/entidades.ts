@@ -285,7 +285,6 @@ export const actualizarEntidad = async ( req: Request,resp: Response )=>{
         if(errorRet == 0){
             try{            
                 entidad = utilities.getEntidadDesdeBody(req.headers,uuid);
-                console.log(entidad);
                 if(entidad.identidad>0){
                     if(item=='estado'){
                         entidad = <EntidadInterface>await Entidad.update( {activo:entidad.activo} ,
@@ -333,24 +332,9 @@ export const actualizarEntidad = async ( req: Request,resp: Response )=>{
                                             }
                                         }else{
                                             if(item=='todo'){
-                                                const Op = Sequelize.Op;
-                                                let consultaPorEmail = await Entidad.findAll( {where:{email: {[Op.iLike]: '%'+entidad.email+'%'}},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
-                                                if(consultaPorEmail.length>0){
-                                                    errorRet = 1;
-                                                    msg = 'Ya existe una entidad con este email';
-                                                    winston.error(uuid+"[ERROR]->"+msg);
-                                                }else{
-                                                    let consultaPorNit = await Entidad.findAll( {where:{nit:entidad.nit},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
-                                                    if(consultaPorNit.length>0){
-                                                        errorRet = 1;
-                                                        msg = 'Ya existe una entidad con este nit';
-                                                        winston.error(uuid+"[ERROR]->"+msg);
-                                                    }else{ 
-                                                        entidad = <EntidadInterface>await Entidad.upsert( entidad,
-                                                        {logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
-                                                        actualizado = true;
-                                                    }
-                                                }                                           
+                                                entidad = <EntidadInterface>await Entidad.upsert( entidad,
+                                                    {logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
+                                                    actualizado = true;                                      
                                             }else{
                                                 if(item=='nuevo'){
                                                     const Op = Sequelize.Op;

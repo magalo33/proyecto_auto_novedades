@@ -9,6 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SuperadminComponent } from './components/superadmin/superadmin.component';
 import { EntidadesComponent } from './components/entidades/entidades.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

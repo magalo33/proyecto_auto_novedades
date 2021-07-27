@@ -81,6 +81,7 @@ export class LoginComponent implements OnInit {
                   let persona = rolXpersona.persona;
                   let rol = rolXpersona.rol;
                   if(rol.descripcion == 'SUPER-ADMIN'){
+                    this.utilitiesService.setLogin(this.idrol,this.cedula);                    
                     this.router.navigate([`../super-admin`]);
                   }else{
                     if(rol.descripcion == 'ADMIN'){

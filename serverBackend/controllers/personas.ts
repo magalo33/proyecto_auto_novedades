@@ -325,24 +325,9 @@ export const actualizarPersona = async ( req: Request,resp: Response )=>{
                                                  actualizado = true;
                                         }else{
                                             if(item=='todo'){
-                                                const Op = Sequelize.Op;
-                                                let consultaPorEmail = await Persona.findAll( {where:{email: {[Op.iLike]: '%'+persona.email+'%'}},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
-                                                if(consultaPorEmail.length>0){
-                                                    errorRet = 1;
-                                                    msg = 'Ya existe una persona con este email';
-                                                    winston.error(uuid+"[ERROR]->"+msg);
-                                                }else{
-                                                    let consultaPorCedula = await Persona.findAll( {where:{cedula:persona.cedula},logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
-                                                    if(consultaPorCedula.length>0){
-                                                        errorRet = 1;
-                                                        msg = 'Ya existe una persona con esta cédula';
-                                                        winston.error(uuid+"[ERROR]->"+msg);
-                                                    }else{
-                                                        persona = <PersonaInterface>await Persona.upsert( persona,
-                                                        {logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
-                                                        actualizado = true;
-                                                    }
-                                                }
+                                                persona = <PersonaInterface>await Persona.upsert( persona,
+                                                    {logging: (sql) => winston.info(uuid+"[SQL]"+sql)} ).then();
+                                                    actualizado = true;
                                             }else{
                                                 if(item=='nuevo'){
                                                     const Op = Sequelize.Op;

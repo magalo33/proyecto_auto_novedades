@@ -1,0 +1,164 @@
+.fila-superior-tabla{    
+    border-width: 5px;
+    border-color: white;
+    color: white;
+    background-color: #23233c;
+    margin: 1px;
+}
+
+
+.fila-contenido-tabla{   
+    font-family: 'STIX Two Math', serif; 
+    word-break:break-all;
+    border-width: 5px;
+    color: #23233c;
+    background-color: #ebebeb;
+    margin: 1px;
+}
+
+.centrado{
+    text-align: center;
+}
+
+.txt-titulo{
+    margin-top: 0.5em;
+    color: #6cc57c;
+    font-size: 1em;
+}
+
+.item-txt{
+    margin-left: 5px;
+}
+
+.fila-lateral-tabla{    
+    border-width: 5px;
+    border-color: white;
+    color: white;
+    background-color: #23233c;
+    font-size: 1em;
+    width: 200px;
+}
+
+
+.txt-item{    
+font-family: 'STIX Two Math', serif; 
+   font-size: 1em;
+}
+
+.txt-titulo-tabla{    
+    font-family: 'STIX Two Math', serif; 
+       font-size: 1em;
+    }
+    
+
+    .txt-titulo-general{    
+        font-family: 'STIX Two Math', serif; 
+           font-size: 1em;
+           color: #23233c;
+        }
+
+    .adjust-right{
+        float: right;
+    }
+
+
+@media (max-width:300px) {
+
+    .fila-lateral-tabla{    
+        border-width: 5px !important;
+        border-color: white !important;
+        color: white !important;
+        background-color: #23233c !important;
+        margin: 1px !important;
+        font-size: 0.5em !important;
+        width: 60px !important;
+    }
+
+    .txt-item{    
+        font-family: 'STIX Two Math', serif; 
+        font-size: 0.6em !important;
+        font-weight: bold !important;
+     }
+
+     .fila-superior-tabla{    
+        border-width: 5px !important;
+        border-color: white !important;
+        color: white !important;
+        background-color: #23233c !important;
+        margin: 0.7px !important;
+    }
+
+    .txt-titulo-tabla{    
+        font-family: 'STIX Two Math', serif !important; 
+           font-size: 0.7em !important;
+        }
+        
+  }
+
+
+  
+@media (max-width:400px) {
+
+    .fila-lateral-tabla{    
+        border-width: 5px !important;
+        border-color: white !important;
+        color: white !important;
+        background-color: #23233c !important;
+        margin: 1px !important;
+        font-size: 0.6em !important;
+        width: 60px !important;
+    }
+
+    .txt-item{    
+        font-family: 'STIX Two Math', serif; 
+        font-size: 0.7em !important;
+        font-weight: bold !important;
+     }
+
+     .fila-superior-tabla{    
+        border-width: 5px !important;
+        border-color: white !important;
+        color: white !important;
+        background-color: #23233c !important;
+        margin: 0.8px !important;
+    }
+
+    .txt-titulo-tabla{    
+        font-family: 'STIX Two Math', serif !important; 
+           font-size: 0.8em !important;
+        }
+        
+  }
+
+  @media (max-width:600px) {
+
+    .fila-lateral-tabla{    
+        border-width: 5px !important;
+        border-color: white !important;
+        color: white !important;
+        background-color: #23233c !important;
+        margin: 1px !important;
+        font-size: 0.7em !important;
+        width: 60px !important;
+    }
+
+    .txt-item{    
+        font-family: 'STIX Two Math', serif; 
+        font-size: 0.8em !important;
+        font-weight: bold !important;
+     }
+
+     .fila-superior-tabla{    
+        border-width: 5px !important;
+        border-color: white !important;
+        color: white !important;
+        background-color: #23233c !important;
+        margin: 0.9px !important;
+    }
+
+    .txt-titulo-tabla{    
+        font-family: 'STIX Two Math', serif !important; 
+           font-size: 0.9em !important;
+        }
+        
+  }

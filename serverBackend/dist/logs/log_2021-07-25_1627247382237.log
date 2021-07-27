@@ -1,1 +1,31 @@
 {"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"14aba6c4-f09a-47ed-a396-d09c6635e3b0[METODO->validateMessage][BODY]{\"data\":{\"token\":\"4ad41ab3-832a-4ea5-82c6-b61fc0ef5479\"},\"expDate\":\"2021-07-25 16:09:45\"}","level":"info"}
+{"message":"14aba6c4-f09a-47ed-a396-d09c6635e3b0[METODO->getEntidades][SQL]Executing (default): SELECT \"identidad\", \"nit\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"activo\", \"createdAt\", \"updatedAt\" FROM \"autos\".\"entidades\" AS \"entidades\" ORDER BY \"entidades\".\"nombre\";","level":"info"}
+{"message":"14aba6c4-f09a-47ed-a396-d09c6635e3b0[METODO->getEntidades][OK]->consulta exitosa","level":"info"}
+{"message":"95bafdcc-8024-41a4-ac4b-baa3b15733e7[METODO->validateMessage][BODY]{\"data\":{\"token\":\"6e7f9ba1-9636-4d01-b483-22cd0a7b4cac\"},\"expDate\":\"2021-07-25 16:13:10\"}","level":"info"}
+{"message":"95bafdcc-8024-41a4-ac4b-baa3b15733e7[METODO->getEntidades][SQL]Executing (default): SELECT \"identidad\", \"nit\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"activo\", \"createdAt\", \"updatedAt\" FROM \"autos\".\"entidades\" AS \"entidades\" ORDER BY \"entidades\".\"nombre\";","level":"info"}
+{"message":"95bafdcc-8024-41a4-ac4b-baa3b15733e7[METODO->getEntidades][OK]->consulta exitosa","level":"info"}
+{"message":"923f0ee6-d563-4644-a1e3-abca62f7aa54[METODO->validateMessage][BODY]{\"data\":{\"token\":\"1a6bdb26-bd8e-404f-b24b-1632e875ad6d\"},\"expDate\":\"2021-07-25 16:15:21\"}","level":"info"}
+{"message":"923f0ee6-d563-4644-a1e3-abca62f7aa54[METODO->getEntidades][SQL]Executing (default): SELECT \"identidad\", \"nit\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"activo\", \"createdAt\", \"updatedAt\" FROM \"autos\".\"entidades\" AS \"entidades\" ORDER BY \"entidades\".\"nombre\";","level":"info"}
+{"message":"923f0ee6-d563-4644-a1e3-abca62f7aa54[METODO->getEntidades][OK]->consulta exitosa","level":"info"}
+{"message":"8d3e4833-c0c5-4df2-b226-af7289a495a0[METODO->validateMessage][BODY]{\"data\":{\"token\":\"f1fc3a6c-db9b-4945-be22-7a6fa865e36b\"},\"expDate\":\"2021-07-25 16:18:54\"}","level":"info"}
+{"message":"8d3e4833-c0c5-4df2-b226-af7289a495a0[METODO->getEntidades][SQL]Executing (default): SELECT \"identidad\", \"nit\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"activo\", \"createdAt\", \"updatedAt\" FROM \"autos\".\"entidades\" AS \"entidades\" ORDER BY \"entidades\".\"nombre\";","level":"info"}
+{"message":"8d3e4833-c0c5-4df2-b226-af7289a495a0[METODO->getEntidades][OK]->consulta exitosa","level":"info"}
+{"message":"302ca363-f44e-47c5-994d-b6aa045da533[METODO->validateMessage][BODY]{\"data\":{\"token\":\"a9efd79f-ce01-42b2-aab5-8700c089a400\"},\"expDate\":\"2021-07-25 16:19:45\"}","level":"info"}
+{"message":"302ca363-f44e-47c5-994d-b6aa045da533[METODO->getEntidades][SQL]Executing (default): SELECT \"identidad\", \"nit\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"activo\", \"createdAt\", \"updatedAt\" FROM \"autos\".\"entidades\" AS \"entidades\" ORDER BY \"entidades\".\"nombre\";","level":"info"}
+{"message":"302ca363-f44e-47c5-994d-b6aa045da533[METODO->getEntidades][OK]->consulta exitosa","level":"info"}
+{"message":"cb5e9635-1f21-4198-a83b-0a30c784a915[METODO->validateMessage][BODY]{\"data\":{\"token\":\"794f3757-29d7-4048-86a4-767ea30ff7a0\"},\"expDate\":\"2021-07-25 16:21:08\"}","level":"info"}
+{"message":"cb5e9635-1f21-4198-a83b-0a30c784a915[METODO->getEntidades][SQL]Executing (default): SELECT \"identidad\", \"nit\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"activo\", \"createdAt\", \"updatedAt\" FROM \"autos\".\"entidades\" AS \"entidades\" ORDER BY \"entidades\".\"nombre\";","level":"info"}
+{"message":"cb5e9635-1f21-4198-a83b-0a30c784a915[METODO->getEntidades][OK]->consulta exitosa","level":"info"}
+{"message":"9bed58b3-36bd-4ddf-a195-b3f5223baa8c[METODO->validateMessage][BODY]{\"data\":{\"token\":\"ce6acccf-9548-4a9a-bd0e-78f8cfc18e6a\"},\"expDate\":\"2021-07-25 16:21:46\"}","level":"info"}
+{"message":"9bed58b3-36bd-4ddf-a195-b3f5223baa8c[METODO->getEntidades][SQL]Executing (default): SELECT \"identidad\", \"nit\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"activo\", \"createdAt\", \"updatedAt\" FROM \"autos\".\"entidades\" AS \"entidades\" ORDER BY \"entidades\".\"nombre\";","level":"info"}
+{"message":"9bed58b3-36bd-4ddf-a195-b3f5223baa8c[METODO->getEntidades][OK]->consulta exitosa","level":"info"}
+{"message":"5d64281a-0260-40e7-9598-8482050a7554[METODO->validateMessage][BODY]{\"data\":{\"token\":\"ebaea0c3-e4ab-46ef-99e2-98d758ed8478\"},\"expDate\":\"2021-07-25 16:22:23\"}","level":"info"}
+{"message":"5d64281a-0260-40e7-9598-8482050a7554[METODO->getEntidades][SQL]Executing (default): SELECT \"identidad\", \"nit\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"activo\", \"createdAt\", \"updatedAt\" FROM \"autos\".\"entidades\" AS \"entidades\" ORDER BY \"entidades\".\"nombre\";","level":"info"}
+{"message":"5d64281a-0260-40e7-9598-8482050a7554[METODO->getEntidades][OK]->consulta exitosa","level":"info"}
+{"message":"b2e5d2a7-ce3a-47fe-ae66-fcbe1ad0788e[METODO->validateMessage][BODY]{\"data\":{\"token\":\"885432d8-4446-4c1e-a9a0-b6467115033c\"},\"expDate\":\"2021-07-25 16:22:46\"}","level":"info"}
+{"message":"b2e5d2a7-ce3a-47fe-ae66-fcbe1ad0788e[METODO->getEntidades][SQL]Executing (default): SELECT \"identidad\", \"nit\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"activo\", \"createdAt\", \"updatedAt\" FROM \"autos\".\"entidades\" AS \"entidades\" ORDER BY \"entidades\".\"nombre\";","level":"info"}
+{"message":"b2e5d2a7-ce3a-47fe-ae66-fcbe1ad0788e[METODO->getEntidades][OK]->consulta exitosa","level":"info"}
+{"message":"6cddb05f-2c14-4dd8-8af8-c245c825abaa[METODO->validateMessage][BODY]{\"data\":{\"token\":\"41db8a8f-75ed-4d02-9a29-c4c2102b7823\"},\"expDate\":\"2021-07-25 16:23:40\"}","level":"info"}
+{"message":"6cddb05f-2c14-4dd8-8af8-c245c825abaa[METODO->getEntidades][SQL]Executing (default): SELECT \"identidad\", \"nit\", \"nombre\", \"direccion\", \"telefono\", \"email\", \"activo\", \"createdAt\", \"updatedAt\" FROM \"autos\".\"entidades\" AS \"entidades\" ORDER BY \"entidades\".\"nombre\";","level":"info"}
+{"message":"6cddb05f-2c14-4dd8-8af8-c245c825abaa[METODO->getEntidades][OK]->consulta exitosa","level":"info"}
