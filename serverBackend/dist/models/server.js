@@ -19,6 +19,7 @@ const roles_1 = __importDefault(require("../routes/roles"));
 const contactos_1 = __importDefault(require("../routes/contactos"));
 const personas_1 = __importDefault(require("../routes/personas"));
 const entidades_1 = __importDefault(require("../routes/entidades"));
+const rolesxpersonas_1 = __importDefault(require("../routes/rolesxpersonas"));
 const generics_1 = __importDefault(require("../routes/generics"));
 const cors_1 = __importDefault(require("cors"));
 const connection_1 = __importDefault(require("../bd/connection"));
@@ -31,7 +32,8 @@ class Server {
             roles: '/api/v1/roles',
             contactos: '/api/v1/contactos',
             personas: '/api/v1/personas',
-            entidades: '/api/v1/entidades'
+            entidades: '/api/v1/entidades',
+            getRolesXpersonas: '/api/v1/rolesxpersonas'
         };
         this.app = express_1.default();
         this.port = process.env.PORT || '8000';
@@ -75,6 +77,7 @@ class Server {
         this.app.use(this.apiPaths.generics, generics_1.default);
         this.app.use(this.apiPaths.personas, personas_1.default);
         this.app.use(this.apiPaths.entidades, entidades_1.default);
+        this.app.use(this.apiPaths.getRolesXpersonas, rolesxpersonas_1.default);
     }
 }
 exports.default = Server;

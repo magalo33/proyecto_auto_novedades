@@ -8,6 +8,7 @@ import { RequestBody } from 'src/app/interfaces/request-body.interface';
 import { Entidades } from '../interfaces/entidades.interface';
 import { GenericResponse } from '../interfaces/genericresponse.interface';
 import { Personas } from '../interfaces/persona.interface';
+import { RolesXpersonasResponse } from '../interfaces/rolesporpersonasresponse';
 
 const base_url = environment.base_url;
 
@@ -65,10 +66,10 @@ export class BackendService {
   }
 
   /*GESTION PERSONAS*/
-  public getPersonas(body: RequestBody, token: string): Observable<Personas> {
+  public getPersonas(body: RequestBody, token: string): Observable<RolesXpersonasResponse> {
     this.token = token;
-    const url = `${base_url}/v1/personas`;
-    return this.http.post<Personas>(url, body, this.headers);
+    const url = `${base_url}/v1/rolesxpersonas`;
+    return this.http.post<RolesXpersonasResponse>(url, body, this.headers);
   }
 
   public editarPersona(body: any, token: string): Observable<GenericResponse> {
@@ -83,4 +84,19 @@ export class BackendService {
     return this.http.post<GenericResponse>(url, body, this.headers);
   }  
   
+
+
+    /*GESTION ROLXPERSONA*/
+    public updateRolXpersona(body: any, token: string): Observable<GenericResponse> {
+      this.token = token;
+      const url = `${base_url}/v1/rolesxpersonas/editar`;
+      return this.http.post<GenericResponse>(url, body, this.headers);
+    }
+  
+
+
+
+
+
+
 }

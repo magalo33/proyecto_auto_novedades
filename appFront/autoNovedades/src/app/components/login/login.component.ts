@@ -50,10 +50,11 @@ export class LoginComponent implements OnInit {
       const token = this.seguridadService.getEncrypt(body);
       
       this.backendService.getRoles(body, token)
-        .subscribe((resp: Roles) => {
+        .subscribe((resp: Roles) => {          
           const error = resp.error;
           if(error == 0){
             this.roles = resp.roles;
+            this.utilitiesService.setRoles(this.roles);
           }else{
             this.utilitiesService.fail(resp.msg);
           }
@@ -85,7 +86,7 @@ export class LoginComponent implements OnInit {
                     this.router.navigate([`../super-admin`]);
                   }else{
                     if(rol.descripcion == 'ADMIN'){
-                      this.utilitiesService.fail('PROCEDER CON ADMIN');
+                      this.router.navigate([`../admin`]);
                     } 
                   }
                 }

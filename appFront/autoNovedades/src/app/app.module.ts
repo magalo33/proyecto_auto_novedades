@@ -11,6 +11,7 @@ import { EntidadesComponent } from './components/entidades/entidades.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PersonasComponent } from './components/personas/personas.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PersonasComponent } from './components/personas/personas.component';
     SuperadminComponent,
     EntidadesComponent,
     UsuariosComponent,
-    PersonasComponent
+    PersonasComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

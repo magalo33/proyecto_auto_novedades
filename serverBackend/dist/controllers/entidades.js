@@ -309,7 +309,7 @@ const actualizarEntidad = (req, resp) => __awaiter(void 0, void 0, void 0, funct
         msg = rolesXpersona.msg;
         if (errorRet == 0) {
             try {
-                entidad = utilities.getEntidadDesdeBody(req.headers, uuid);
+                entidad = utilities.getEntidadDesdeHeader(req.headers, uuid);
                 if (entidad.identidad > 0) {
                     if (item == 'estado') {
                         entidad = (yield entidad_1.default.update({ activo: entidad.activo }, { where: { identidad: entidad.identidad }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());

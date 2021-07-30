@@ -9,6 +9,7 @@ import Persona from '../models/persona';
 import RolesxPersona from '../models/rolesxpersona';
 import Roles from '../models/rol';
 import { RolesXpersona, RolXpersona } from '../models/interfaces/rolesxpersona';
+import { RolesXpersonaInterface } from '../models/interfaces/rolesxpersonas.interface';
 
 const winston = require('../winston/config');
 const app = express();
@@ -80,9 +81,9 @@ class Utilities {
         return requestLogin;
     }    
 
-    getPersonadesdeBody(headers:any,uuid:string):PersonaInterface{
+    getPersonadesdeHeader(headers:any,uuid:string):PersonaInterface{
         const xsessiontoken = headers['x-session-token'];
-        uuid = uuid + "[METODO->getPersonadesdeBody]";
+        uuid = uuid + "[METODO->getPersonadesdeHeader]";
         const security = new Security();
         let personabase:PersonaInterface = this.getPersonaInterface();
         try{
@@ -103,9 +104,9 @@ class Utilities {
         return personabase;
     }
 
-    getEntidadDesdeBody(headers:any,uuid:string):EntidadInterface{
+    getEntidadDesdeHeader(headers:any,uuid:string):EntidadInterface{
         const xsessiontoken = headers['x-session-token'];
-        uuid = uuid + "[METODO->getEntidaddeBody]";
+        uuid = uuid + "[METODO->getEntidadDesdeHeader]";
         const security = new Security();
         let entidadbase:EntidadInterface = this.getEntidadInterface();
         try{
@@ -124,6 +125,28 @@ class Utilities {
         }
         return entidadbase;
     }
+
+
+    getRolesXpersonaDesdeHeader(headers:any,uuid:string):RolesXpersonaInterface{
+        const xsessiontoken = headers['x-session-token'];
+        uuid = uuid + "[METODO->getRolesXpersonaDesdeHeader]";
+        const security = new Security();
+        let rolesXpersonaBase:RolesXpersonaInterface = this.getRolesXpersonaInterface();
+        try{
+           let body = security.getDeEncrypt(xsessiontoken.toString());
+           let data = body.data;
+           let rolesxpersona = <RolesXpersonaInterface>data.rolxpersona;
+           rolesXpersonaBase.idpersona =        rolesxpersona.idpersona || 0;
+           rolesXpersonaBase.idrol =            rolesxpersona.idrol || 0;
+           rolesXpersonaBase.idrolesxpersona =  rolesxpersona.idrolesxpersona || 0;
+        }catch(error){
+            winston.error(uuid+'[ERROR]->'+error);
+        }
+        return rolesXpersonaBase;
+    }
+
+
+    
 
     getPersonaInterface():PersonaInterface{
         let persona:PersonaInterface= {    
@@ -152,6 +175,16 @@ class Utilities {
             activo: false
         };
         return entidad;
+    }
+
+
+    getRolesXpersonaInterface():RolesXpersonaInterface{
+        let rolesXpersonaInterface={
+            idrolesxpersona:0,
+            idrol:0,
+            idpersona:0
+        }
+        return rolesXpersonaInterface;
     }
 
 

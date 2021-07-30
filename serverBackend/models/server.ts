@@ -5,6 +5,7 @@ import rolesRoutes from '../routes/roles';
 import contactosRoutes from '../routes/contactos';
 import personasRoutes from '../routes/personas';
 import entidadesRoutes from '../routes/entidades';
+import rolesXpersonasRoutes from '../routes/rolesxpersonas';
 import genericRoutes from '../routes/generics';
 import cors from 'cors';
 import db from "../bd/connection";
@@ -21,7 +22,8 @@ class Server{
         roles: '/api/v1/roles',
         contactos: '/api/v1/contactos',
         personas: '/api/v1/personas',
-        entidades: '/api/v1/entidades'
+        entidades: '/api/v1/entidades',
+        getRolesXpersonas: '/api/v1/rolesxpersonas'
     }
 
     constructor(){
@@ -69,7 +71,10 @@ class Server{
         this.app.use( this.apiPaths.contactos,contactosRoutes);    
         this.app.use( this.apiPaths.generics,genericRoutes);    
         this.app.use( this.apiPaths.personas,personasRoutes);    
-        this.app.use( this.apiPaths.entidades,entidadesRoutes);    
+        this.app.use( this.apiPaths.entidades,entidadesRoutes);   
+        this.app.use( this.apiPaths.getRolesXpersonas,rolesXpersonasRoutes);   
+        
+        
     }
 }
 

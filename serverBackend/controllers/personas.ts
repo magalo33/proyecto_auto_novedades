@@ -5,6 +5,8 @@ import Sequelize from 'sequelize';
 import { PersonaInterface } from '../models/interfaces/persona.interface';
 import { RolesXpersona, RolXpersona } from '../models/interfaces/rolesxpersona';
 const winston = require('../winston/config');
+import db from '../bd/connection';
+import  { QueryTypes } from 'sequelize';
 
 /*
     Retorna un listado de todas las personas en la base de datos
@@ -259,7 +261,7 @@ export const getPersonaPorEmail = async ( req: Request,resp: Response )=>{
                 "activo": false
             }
         }
-
+        Tener en cuenta que al registrar un usuario, la base de datos, por medio de trigger asigna el rol usuario a esta persona
 */
 export const actualizarPersona = async ( req: Request,resp: Response )=>{
     const { item } = req.params;/*Path de control*/
@@ -283,7 +285,7 @@ export const actualizarPersona = async ( req: Request,resp: Response )=>{
         msg = rolesXpersona.msg;
         if(errorRet == 0){
             try{            
-                persona = utilities.getPersonadesdeBody(req.headers,uuid);
+                persona = utilities.getPersonadesdeHeader(req.headers,uuid);
                 if(persona.idpersona>0){
                     if(item=='estado'){
                         persona = <PersonaInterface>await Persona.update( {activo:persona.activo} ,
@@ -436,3 +438,6 @@ export const actualizarPersona = async ( req: Request,resp: Response )=>{
         msg: msg
     });
 }
+
+
+

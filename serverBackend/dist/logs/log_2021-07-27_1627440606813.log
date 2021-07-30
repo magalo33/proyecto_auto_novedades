@@ -1,0 +1,2 @@
+{"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"8d063d7a-cc35-42dd-b422-a2712343cf2f[ERROR]->Se presentó un error al tratar de obtener la informacion de la base de datos \nTypeError: Cannot read property 'type' of undefined","level":"error"}

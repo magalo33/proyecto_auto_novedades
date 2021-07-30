@@ -13,9 +13,10 @@
                     <th scope="col" class="txt-titulo-tabla-persona">DIRECCIÓN</th>
                     <th scope="col" class="txt-titulo-tabla-persona">TELÉFONO</th>
                     <th scope="col" class="txt-titulo-tabla-persona">EMAIL</th>
+                    <th scope="col" class="txt-titulo-tabla-persona">ROL</th>
                     <th scope="col" class="txt-titulo-tabla-persona">CRE. EN</th>
                     <th scope="col" class="txt-titulo-tabla-persona">ACT. EN</th>
-                    <th scope="col" class="txt-titulo-tabla-persona">ESTADO</th>
+                    <th scope="col" class="txt-titulo-tabla-persona">¿ACTIVO?</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,6 +26,7 @@
                     <td class="txt-item">{{persona.direccion}}</td>   
                     <td class="txt-item">{{persona.telefono}}</td>   
                     <td class="txt-item">{{persona.email}}</td>   
+                    <td class="txt-item">{{persona.descripcion}}<span class="adjust-right"  (click)="editarRolPersona(persona)"><fa-icon [icon]="faEdit"></fa-icon></span></td><!--este campo tiene la descripcion del rol-->   
                     <td class="txt-item">{{persona.createdAt}}</td>   
                     <td class="txt-item">{{persona.updatedAt}}</td>   
                     <td class="txt-item">{{persona.activo}}</td>   
@@ -48,9 +50,10 @@
                     <tr><td class="fila-lateral-tabla-persona">DIRECCIÓN  </td><td class="txt-item">{{persona.direccion}} </td></tr>
                     <tr><td class="fila-lateral-tabla-persona">TELÉFONO   </td><td class="txt-item">{{persona.telefono}}  </td></tr>
                     <tr><td class="fila-lateral-tabla-persona">EMAIL      </td><td class="txt-item">{{persona.email}}     </td></tr>
+                    <tr><td class="fila-lateral-tabla-persona">ROL        </td><td class="txt-item">{{persona.descripcion}}     <span class="adjust-right"  (click)="editarRolPersona(persona)"><fa-icon [icon]="faEdit"></fa-icon></span></td></tr>
                     <tr><td class="fila-lateral-tabla-persona">CRE. EN    </td><td class="txt-item">{{persona.createdAt}} </td></tr>
                     <tr><td class="fila-lateral-tabla-persona">ACT. EN    </td><td class="txt-item">{{persona.updatedAt}} </td></tr>
-                    <tr><td class="fila-lateral-tabla-persona">ESTADO     </td><td class="txt-item">{{persona.activo}}    </td></tr>
+                    <tr><td class="fila-lateral-tabla-persona">¿ACTIVO?   </td><td class="txt-item">{{persona.activo}}    </td></tr>
                 </tbody>            
             </table>
         </div>
@@ -64,7 +67,7 @@
     <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="titulo-modal">EDITAR PERSONA</h5>
+                <h5 class="modal-title" id="titulo-modal-1">EDITAR PERSONA</h5>
             </div>
             <div class="modal-body" id="modal-editar-persona">
                 <form>  
@@ -162,6 +165,54 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary btn-lg btn-block background-azul-oscuro"  (click)="registroPersonaCargado()">REGISTRAR</button>
+                <button type="button" class="btn btn-secondary btn-lg btn-block " data-dismiss="modal" (click)="closeModalPersona()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--Model para edición de rol-->
+<div class="modal fade z-index-1500 modalStyle" id="dialogo3-persona" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="titulo-modal-3">EDITAR ROL</h5>
+            </div>
+            <div class="modal-body" id="modal-editar-rol">
+
+                <form>  
+                    <div class="form-group row mb5px">
+                        <div class="form-group row mb10px">
+                            <div class="col-sm-6 mb10px">
+                                <label for="password-rol-editar" class="col-sm-6 col-form-label">Password Super-Admin</label>
+                            </div> 
+                            <div class="col-sm-6">
+                                <input type="password" id="password-rol-editar" class="form-control form-control-lg campos2" />
+                            </div>
+                        </div> 
+                    </div>
+
+                    <div class="form-group row mb5px">
+                        <div class="form-group row mb10px">
+                            <div class="col-sm-6 mb10px">
+                                <label for="rol-rol-editar" class="col-sm-6 col-form-label">Nuevo Rol</label>
+                            </div> 
+                            <div class="col-sm-6">
+                                <select class="select arrow form-control my-0 mr-sm-2 campos" name="rol-rol-editar" id="rol-rol-editar"  [(ngModel)]="idrol">
+                                    <option value=0>SELECCIONE ROL</option>
+                                    <option *ngFor="let rol of roles" [value]="rol.idrol">{{rol.descripcion}}</option>
+                                </select>
+                            </div>
+                        </div> 
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-lg btn-block background-azul-oscuro"  (click)="editarRolCargado()">EDITAR</button>
                 <button type="button" class="btn btn-secondary btn-lg btn-block " data-dismiss="modal" (click)="closeModalPersona()">Cancelar</button>
             </div>
         </div>

@@ -89,9 +89,9 @@ class Utilities {
         }
         return requestLogin;
     }
-    getPersonadesdeBody(headers, uuid) {
+    getPersonadesdeHeader(headers, uuid) {
         const xsessiontoken = headers['x-session-token'];
-        uuid = uuid + "[METODO->getPersonadesdeBody]";
+        uuid = uuid + "[METODO->getPersonadesdeHeader]";
         const security = new security_1.default();
         let personabase = this.getPersonaInterface();
         try {
@@ -112,9 +112,9 @@ class Utilities {
         }
         return personabase;
     }
-    getEntidadDesdeBody(headers, uuid) {
+    getEntidadDesdeHeader(headers, uuid) {
         const xsessiontoken = headers['x-session-token'];
-        uuid = uuid + "[METODO->getEntidaddeBody]";
+        uuid = uuid + "[METODO->getEntidadDesdeHeader]";
         const security = new security_1.default();
         let entidadbase = this.getEntidadInterface();
         try {
@@ -133,6 +133,24 @@ class Utilities {
             winston.error(uuid + '[ERROR]->' + error);
         }
         return entidadbase;
+    }
+    getRolesXpersonaDesdeHeader(headers, uuid) {
+        const xsessiontoken = headers['x-session-token'];
+        uuid = uuid + "[METODO->getRolesXpersonaDesdeHeader]";
+        const security = new security_1.default();
+        let rolesXpersonaBase = this.getRolesXpersonaInterface();
+        try {
+            let body = security.getDeEncrypt(xsessiontoken.toString());
+            let data = body.data;
+            let rolesxpersona = data.rolxpersona;
+            rolesXpersonaBase.idpersona = rolesxpersona.idpersona || 0;
+            rolesXpersonaBase.idrol = rolesxpersona.idrol || 0;
+            rolesXpersonaBase.idrolesxpersona = rolesxpersona.idrolesxpersona || 0;
+        }
+        catch (error) {
+            winston.error(uuid + '[ERROR]->' + error);
+        }
+        return rolesXpersonaBase;
     }
     getPersonaInterface() {
         let persona = {
@@ -160,6 +178,14 @@ class Utilities {
             activo: false
         };
         return entidad;
+    }
+    getRolesXpersonaInterface() {
+        let rolesXpersonaInterface = {
+            idrolesxpersona: 0,
+            idrol: 0,
+            idpersona: 0
+        };
+        return rolesXpersonaInterface;
     }
     getToken() {
         return uuid_1.v4();

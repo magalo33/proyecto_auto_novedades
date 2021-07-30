@@ -1,0 +1,2 @@
+{"message":"You have successfully started working with winston and morgan","level":"info"}
+{"message":"b1c8b5ab-1ddc-48f0-a044-fb8ae08f268c[ERROR]->Se presentó un error al tratar de obtener la informacion de la base de datos \nError: Unknown structure passed to order / group: persona","level":"error"}

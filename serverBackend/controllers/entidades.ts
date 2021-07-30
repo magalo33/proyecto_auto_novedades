@@ -284,7 +284,7 @@ export const actualizarEntidad = async ( req: Request,resp: Response )=>{
         msg = rolesXpersona.msg;
         if(errorRet == 0){
             try{            
-                entidad = utilities.getEntidadDesdeBody(req.headers,uuid);
+                entidad = utilities.getEntidadDesdeHeader(req.headers,uuid);
                 if(entidad.identidad>0){
                     if(item=='estado'){
                         entidad = <EntidadInterface>await Entidad.update( {activo:entidad.activo} ,

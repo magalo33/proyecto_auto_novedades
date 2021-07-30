@@ -1,11 +1,13 @@
+import { PersonaConRol } from './../../interfaces/rolesporpersonasresponse';
 import { Component, OnInit } from '@angular/core';
-import { Persona, Personas } from 'src/app/interfaces/persona.interface';
 import { BackendService } from 'src/app/services/backend.service';
 import { SeguridadService } from 'src/app/services/seguridad.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { faEdit } from '@fortawesome/free-solid-svg-icons';
 import * as jQuery from 'jquery';
 import { GenericResponse } from 'src/app/interfaces/genericresponse.interface';
+import { RolesXpersonasResponse } from 'src/app/interfaces/rolesporpersonasresponse';
+import { Rol } from 'src/app/interfaces/rol.interface';
 
 @Component({
   selector: 'app-personas',
@@ -15,16 +17,21 @@ import { GenericResponse } from 'src/app/interfaces/genericresponse.interface';
 export class PersonasComponent implements OnInit {
 
   faEdit = faEdit;
-  personas:Persona[];
+  personas:PersonaConRol[];
   personaSeleccionada:number=0;
+  rolxpersonaseleccionado:number=0;
+  roles:Rol[];
+  idrol:Number = 0;
 
   constructor(
     private seguridadService: SeguridadService,
     private backendService: BackendService,
     private utilitiesService: UtilitiesService
-  ) { 
+  ) {
+    this.roles = this.utilitiesService.getRoles(); 
     this.personas = new Array();
     this.getPersonas();
+
   }
 
   ngOnInit(): void {
@@ -48,11 +55,11 @@ export class PersonasComponent implements OnInit {
       const token = this.seguridadService.getEncrypt(body);
       
       this.backendService.getPersonas(body, token)
-        .subscribe((resp: Personas) => {
+        .subscribe((resp: RolesXpersonasResponse) => {
           const error = resp.error;
           if(error == 0){
-            this.personas = resp.personas;
-            this.personas.forEach((item:Persona)=>{          
+            this.personas = resp.rolesxpersonas;
+            this.personas.forEach((item:PersonaConRol)=>{          
               
               let unix_timestamp = this.utilitiesService.toTimestamp(item.createdAt);
               var date = new Date(unix_timestamp * 1000);    
@@ -93,7 +100,7 @@ export class PersonasComponent implements OnInit {
     }
   }
 
-  editarPersona(persona:Persona){
+  editarPersona(persona:PersonaConRol){
 
     this.personaSeleccionada = persona.idpersona;
     const cedulapersonaeditar = (<HTMLInputElement>document.getElementById('cedula-persona-editar'));
@@ -124,10 +131,23 @@ export class PersonasComponent implements OnInit {
   }
 
 
+  editarRolPersona(persona:PersonaConRol){
+    this.rolxpersonaseleccionado = persona.idrolesxpersona;
+    this.personaSeleccionada = persona.idpersona;
+    jQuery.noConflict();
+    const mtac = document.getElementById('modal-editar-rol');
+    if(mtac){
+      jQuery.noConflict();
+      ($('#dialogo3-persona') as any).modal('show');
+    }
+  }
+
+
     /*cierra modal*/
     closeModalPersona(): void{
       ($('#dialogo1-persona') as any).modal('hide');
       ($('#dialogo2-persona') as any).modal('hide');
+      ($('#dialogo3-persona') as any).modal('hide');
     }
 
 
@@ -213,12 +233,12 @@ export class PersonasComponent implements OnInit {
     registroPersonaCargado(){
       try{
   
-          const cedulapersonaregistrar =         (<HTMLInputElement>document.getElementById('cedula-persona-registrar')).value;
+          const cedulapersonaregistrar =      (<HTMLInputElement>document.getElementById('cedula-persona-registrar')).value;
           const nombrepersonaregistrar =      (<HTMLInputElement>document.getElementById('nombre-persona-registrar')).value;
-          const direccionpersonaregistrar =   (<HTMLInputElement>document.getElementById('direccion-persona-registrar')).value;
-          const telefonpersonaregistrar =      (<HTMLInputElement>document.getElementById('telefono-persona-registrar')).value;
-          const emailpersonaregistrar =       (<HTMLInputElement>document.getElementById('email-persona-registrar')).value;
-          let clave =                         (<HTMLInputElement>document.getElementById('password-persona-registrar')).value;
+          const direccionpersonaregistrar =(<HTMLInputElement>document.getElementById('direccion-persona-registrar')).value;
+          const telefonpersonaregistrar =   (<HTMLInputElement>document.getElementById('telefono-persona-registrar')).value;
+          const emailpersonaregistrar =        (<HTMLInputElement>document.getElementById('email-persona-registrar')).value;
+          let clave =                       (<HTMLInputElement>document.getElementById('password-persona-registrar')).value;
   
           let personaRequest = {
             identidad:  0,
@@ -268,5 +288,48 @@ export class PersonasComponent implements OnInit {
       this.utilitiesService.fail(error.toString());
     }   
   
+    }
+
+
+
+    editarRolCargado(){
+      let clave = (<HTMLInputElement>document.getElementById('password-rol-editar'));
+      let rolxpersona = {
+        idrolesxpersona:  this.rolxpersonaseleccionado,
+        idpersona:     this.personaSeleccionada,
+        idrol: this.idrol
+      };
+        const body = 
+        { 
+          data: 
+          { 
+            requestLogin: 
+            { 
+              idrol: this.utilitiesService.getIdrol(),
+              cedula: this.utilitiesService.getCedula(),
+              clave: this.seguridadService.getDataEncrypt( clave.value) 
+            },
+            rolxpersona: rolxpersona
+          } 
+        }; 
+        const token = this.seguridadService.getEncrypt(body);
+
+      if(rolxpersona.idrol == 0){
+        this.utilitiesService.fail("Debe seleccionar el rol");
+      }else{
+        this.backendService.updateRolXpersona(body, token)
+        .subscribe((resp: GenericResponse) => {
+          const error = resp.error;
+          this.closeModalPersona();
+          clave.value = '';
+          if(error == 0){
+            this.getPersonas();
+           }else{
+            this.utilitiesService.fail(resp.msg);
+          }
+        }, (error) => {
+          this.utilitiesService.fail('Error al tratar de obtener información del backend.');
+        });
+      }      
     }
 }

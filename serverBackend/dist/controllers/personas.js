@@ -285,7 +285,7 @@ exports.getPersonaPorEmail = getPersonaPorEmail;
                 "activo": false
             }
         }
-
+        Tener en cuenta que al registrar un usuario, la base de datos, por medio de trigger asigna el rol usuario a esta persona
 */
 const actualizarPersona = (req, resp) => __awaiter(void 0, void 0, void 0, function* () {
     const { item } = req.params; /*Path de control*/
@@ -309,7 +309,7 @@ const actualizarPersona = (req, resp) => __awaiter(void 0, void 0, void 0, funct
         msg = rolesXpersona.msg;
         if (errorRet == 0) {
             try {
-                persona = utilities.getPersonadesdeBody(req.headers, uuid);
+                persona = utilities.getPersonadesdeHeader(req.headers, uuid);
                 if (persona.idpersona > 0) {
                     if (item == 'estado') {
                         persona = (yield persona_1.default.update({ activo: persona.activo }, { where: { idpersona: persona.idpersona }, logging: (sql) => winston.info(uuid + "[SQL]" + sql) }).then());
